@@ -316,7 +316,8 @@ stores:{cap:'Store directory',html:t=>`
  <div class="top"><h2>${t.stores}</h2></div>
  <div class="body" style="padding-top:0"><div class="field" style="margin-bottom:15px">🔎 ${t.search}</div>
    <div class="chips">${[['c_all',1],['c_gro'],['c_pha'],['c_ele'],['c_fas']].map(c=>`<span class="chip ${c[1]?'on':''}">${t[c[0]]}</span>`).join('')}</div>
-   ${[['🛒','st1','st1d'],['💊','st2','st2d'],['📱','st3','st3d'],['👕','st4','st4d'],['🏍️','st5','st5d']].map(s=>`<div class="store"><div class="slogo">${s[0]}</div><div style="flex:1"><div class="b" style="font-size:14px">${t[s[1]]}</div><p class="mut" style="font-size:12px">${t[s[2]]}</p></div><span class="mut">›</span></div>`).join('')}</div>`},
+   ${[['🛒','st1','st1d'],['💊','st2','st2d'],['📱','st3','st3d'],['👕','st4','st4d'],['🏍️','st5','st5d']].map(s=>`<div class="store"><div class="slogo">${s[0]}</div><div style="flex:1"><div class="b" style="font-size:14px">${t[s[1]]}</div><p class="mut" style="font-size:12px">${t[s[2]]}</p></div><span class="mut">›</span></div>`).join('')}</div>
+ ${nav(t,'stores')}`},
 
 notifs:{cap:'Notifications',html:t=>`
  <div class="top"><span class="bk" data-go="home">${t.bk}</span><h2>${t.notifs}</h2></div>
