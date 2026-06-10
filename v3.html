@@ -268,7 +268,7 @@ ar:{ dir:'rtl', bk:'‹',
  nav_home:'الرئيسية', nav_stores:'المتاجر', nav_loans:'قروضي', nav_profile:'حسابي' },
 };
 
-let lang='en';
+let lang=(/[?&]lang=ar/.test(location.search))?'ar':'en';
 let theme=(()=>{try{return localStorage.getItem('qt')||'green'}catch(e){return 'green'}})();
 const APP=/[?&](app|preview)/.test(location.search)||(window.innerWidth<820&&!/[?&]gallery/.test(location.search));
 let active='welcome';
