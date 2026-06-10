@@ -370,6 +370,78 @@
   .spD .sp-ctas .btn:nth-child(1){animation-delay:2.15s}
   .spD .sp-ctas .btn:nth-child(2){animation-delay:2.28s}
 
+  /* shared dramatic bits */
+  .swave{position:absolute;left:50%;top:50%;width:100%;height:100%;border:2px solid rgba(255,255,255,.65);border-radius:50%;opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(1);animation:swaveFx 1s cubic-bezier(.2,.6,.4,1) forwards}
+  @keyframes swaveFx{0%{opacity:.85;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(2.7)}}
+  .spop{position:absolute;color:#fff;opacity:0;animation:spopFx .75s ease-out forwards;pointer-events:none}
+  @keyframes spopFx{0%{opacity:0;transform:scale(.2) rotate(0deg)}40%{opacity:1;transform:scale(1.2) rotate(16deg)}100%{opacity:0;transform:scale(.55) rotate(32deg)}}
+
+  /* E — ink flood */
+  .spE{background:#07090E}
+  .spE .flood{position:absolute;left:50%;top:44%;width:1340px;height:1340px;margin:-670px 0 0 -670px;border-radius:50%;background:radial-gradient(circle at 40% 34%,var(--brand2) 0%,var(--brand) 40%,var(--brand-d) 74%,var(--hero2) 100%);transform:scale(0);animation:floodIn .95s .15s cubic-bezier(.25,.8,.3,1.05) forwards;z-index:1}
+  @keyframes floodIn{to{transform:scale(1)}}
+  .spE .flash{position:absolute;inset:0;background:#fff;opacity:0;animation:flashFx .5s .95s ease-out;z-index:6;pointer-events:none}
+  @keyframes flashFx{0%{opacity:0}22%{opacity:.3}100%{opacity:0}}
+  .epod{position:relative;display:flex;align-items:center;justify-content:center}
+  .etile{width:88px;height:88px;border-radius:27px;background:#fff;color:var(--brand);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 50px rgba(0,0,0,.42);transform:scale(0);animation:punchIn .55s .9s cubic-bezier(.18,1.7,.3,1) forwards}
+  @keyframes punchIn{to{transform:scale(1)}}
+  .spE .wordmark{overflow:visible}
+  .spE .wordmark b{animation:slamIn .55s cubic-bezier(.2,.8,.3,1) both}
+  @keyframes slamIn{from{opacity:0;transform:translateY(26px) scale(1.5);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+  .spE .sp-tag{animation-delay:1.9s}
+  .spE .sp-ctas .btn:nth-child(1){animation-delay:2.1s}
+  .spE .sp-ctas .btn:nth-child(2){animation-delay:2.22s}
+
+  /* F — cinematic title card */
+  .spF{background:radial-gradient(130% 90% at 50% 118%,var(--hero1) 0%,transparent 52%),linear-gradient(180deg,#07090E 0%,#0C1118 55%,#07090E 100%)}
+  .spF .sp-center{animation:shakeFx .42s 1.02s cubic-bezier(.36,.07,.19,.97) both}
+  @keyframes shakeFx{0%,100%{transform:translate(0,0)}20%{transform:translate(-6px,4px)}40%{transform:translate(5px,-3px)}60%{transform:translate(-4px,2px)}80%{transform:translate(2px,-1px)}}
+  .fpod{position:relative;display:flex;align-items:center;justify-content:center}
+  .fq{color:#fff;opacity:0;transform:scale(7);filter:blur(18px);animation:crashIn .8s .25s cubic-bezier(.32,0,.2,1) forwards;position:relative;z-index:2}
+  @keyframes crashIn{55%{filter:blur(5px)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
+  .fglow{position:absolute;left:50%;top:64%;width:250px;height:95px;transform:translate(-50%,-50%);background:radial-gradient(50% 50% at 50% 50%,var(--brand2),transparent 72%);opacity:0;filter:blur(16px);animation:fglowIn .7s 1.02s ease-out forwards;z-index:1}
+  @keyframes fglowIn{to{opacity:.5}}
+  .fburst i{position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:var(--brand2);box-shadow:0 0 10px var(--brand2);opacity:0;animation:burstFx .75s 1.02s cubic-bezier(.15,.7,.35,1) forwards}
+  @keyframes burstFx{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}
+  .spF .wordmark{overflow:visible}
+  .spF .wordmark b{animation:sideIn .55s cubic-bezier(.2,.8,.3,1) both}
+  @keyframes sideIn{from{opacity:0;transform:translateX(var(--fx,60px));filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+  .spF .sp-tag{animation-delay:1.85s}
+  .spF .sp-ctas .btn:nth-child(1){animation-delay:2.05s}
+  .spF .sp-ctas .btn:nth-child(2){animation-delay:2.17s}
+
+  /* G — constellation */
+  .spG{background:radial-gradient(110% 70% at 50% -5%,#0E2018 0%,#070B0D 65%)}
+  .star{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.8);animation:twinkle 3.2s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.12}50%{opacity:.85}}
+  .gpod{position:relative;width:88px;height:88px;display:flex;align-items:center;justify-content:center}
+  .cv{position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px;border-radius:50%;background:var(--brand2);box-shadow:0 0 12px var(--brand2);opacity:0;animation:convergeFx 1s cubic-bezier(.5,0,.25,1) forwards}
+  @keyframes convergeFx{0%{opacity:0;transform:translate(var(--sx),var(--sy)) scale(.5)}22%{opacity:1}88%{opacity:.9}100%{opacity:0;transform:translate(0,0) scale(.25)}}
+  .gburst{position:absolute;left:50%;top:50%;width:170px;height:170px;margin:-85px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.7),transparent 62%);opacity:0;transform:scale(.2);filter:blur(4px);animation:gburstFx .7s 1.18s cubic-bezier(.2,.7,.3,1) forwards;pointer-events:none}
+  @keyframes gburstFx{0%{opacity:0;transform:scale(.2)}30%{opacity:.9}100%{opacity:0;transform:scale(1.7)}}
+  .gtile2{width:88px;height:88px;border-radius:27px;background:linear-gradient(150deg,rgba(255,255,255,.18),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;opacity:0;filter:blur(9px);transform:scale(.55);animation:matFx .65s 1.3s cubic-bezier(.2,1.2,.3,1) forwards;box-shadow:0 0 60px color-mix(in srgb,var(--brand2) 35%,transparent),0 18px 44px rgba(0,0,0,.45)}
+  @keyframes matFx{to{opacity:1;filter:blur(0);transform:scale(1)}}
+  .spG .sp-tag{animation-delay:2.1s}
+  .spG .sp-ctas .btn:nth-child(1){animation-delay:2.3s}
+  .spG .sp-ctas .btn:nth-child(2){animation-delay:2.42s}
+
+  /* H — coin flip 3D */
+  .spH{background:radial-gradient(130% 100% at 50% -25%,var(--hero1) 0%,#07090E 62%)}
+  .hstage{perspective:760px}
+  .hpod{position:relative;display:flex;align-items:center;justify-content:center}
+  .coin{width:92px;height:92px;border-radius:28px;background:linear-gradient(150deg,var(--brand2) -25%,var(--brand) 45%,var(--brand-d) 115%);display:flex;align-items:center;justify-content:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 24px 52px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.4);opacity:0;animation:coinIn 1.25s .25s cubic-bezier(.3,.65,.25,1) forwards;will-change:transform}
+  @keyframes coinIn{0%{opacity:0;transform:rotateY(900deg) translateY(-165px) scale(.3)}12%{opacity:1}78%{transform:rotateY(0deg) translateY(0) scale(1.05)}87%{transform:rotateY(0deg) translateY(4px) scale(1.07,.86)}100%{opacity:1;transform:rotateY(0deg) translateY(0) scale(1)}}
+  .coin::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.55) 48%,transparent 64%);background-size:240% 100%;background-position:135% 0;opacity:0;animation:specFx 1.4s 1.6s ease-in-out forwards}
+  @keyframes specFx{0%{opacity:0;background-position:135% 0}18%{opacity:1}100%{opacity:0;background-position:-135% 0}}
+  .cshadow{width:120px;height:16px;border-radius:50%;background:rgba(0,0,0,.55);filter:blur(8px);margin-top:16px;opacity:0;transform:scaleX(.25);animation:shadowIn .55s 1.12s ease-out forwards}
+  @keyframes shadowIn{to{opacity:.6;transform:scaleX(1)}}
+  .spH .wordmark{overflow:visible;perspective:520px}
+  .spH .wordmark b{transform-origin:50% 100%;animation:flipIn .6s cubic-bezier(.2,.8,.3,1) both}
+  @keyframes flipIn{from{opacity:0;transform:rotateX(82deg) translateY(10px)}to{opacity:1;transform:none}}
+  .spH .sp-tag{animation-delay:2.15s}
+  .spH .sp-ctas .btn:nth-child(1){animation-delay:2.35s}
+  .spH .sp-ctas .btn:nth-child(2){animation-delay:2.47s}
+
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation-duration:.001s !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition:none !important}
   }
@@ -392,6 +464,8 @@
   <div class="grp">Splash options</div>
   <a data-go="welcome">A · Monogram draw</a><a data-go="welcomeB">B · Aurora glass</a>
   <a data-go="welcomeC">C · Sonar pulse</a><a data-go="welcomeD">D · Ivory prestige</a>
+  <a data-go="welcomeE">E · Ink flood ⚡</a><a data-go="welcomeF">F · Title-card crash ⚡</a>
+  <a data-go="welcomeG">G · Constellation ⚡</a><a data-go="welcomeH">H · Coin flip 3D ⚡</a>
   <div class="grp">Onboarding & KYC</div>
   <a data-go="phone">Phone + OTP</a><a data-go="idcap">ID capture</a>
   <a data-go="selfie">Selfie / liveness</a><a data-go="pending">KYC pending</a><a data-go="approved">KYC approved</a>
@@ -585,6 +659,64 @@ welcomeD:{cap:'Splash D — Ivory prestige',sp:1,cls:'sp spD',noSb:1,html:t=>`
    <p class="sp-tag">${t.w_tag}</p>
  </div>
  <div class="ftr sp-ctas"><a class="btn inkb" data-go="phone">${t.create}</a><a class="btn gho" data-go="home">${t.have}</a></div>`},
+
+welcomeE:{cap:'Splash E — Ink flood',sp:1,cls:'sp spE',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'we')}
+ <div class="flood"></div><div class="grain"></div><div class="flash"></div>
+ <div class="sp-center">
+   <div class="epod"><span class="swave" style="animation-delay:1.08s"></span><span class="swave" style="animation-delay:1.26s"></span><div class="etile">${MARK(46)}</div></div>
+   <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.3+i*0.06).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <p class="sp-tag">${t.w_tag}</p>
+ </div>
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+
+welcomeF:{cap:'Splash F — Title-card crash',sp:1,cls:'sp spF',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'wf')}
+ <div class="grain"></div>
+ <div class="sp-center">
+   <div class="fpod">
+     <div class="fglow"></div>
+     <div class="fq">${MARK(112)}</div>
+     <div class="fburst">${[[-96,-64],[88,-72],[-118,8],[112,20],[-70,66],[64,84],[-30,-104],[24,108]].map(p=>`<i style="--dx:${p[0]}px;--dy:${p[1]}px"></i>`).join('')}</div>
+   </div>
+   <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="--fx:${i%2?'-60px':'60px'};animation-delay:${(1.32+i*0.05).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <p class="sp-tag">${t.w_tag}</p>
+ </div>
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+
+welcomeG:{cap:'Splash G — Constellation',sp:1,cls:'sp spG',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'wg')}
+ <div class="grain"></div>
+ ${[[12,18,0],[78,12,1.2],[30,8,2.1],[88,30,.6],[8,52,1.7],[92,64,.3],[18,78,2.4],[70,84,.9]].map(s=>`<span class="star" style="left:${s[0]}%;top:${s[1]}%;animation-delay:${s[2]}s"></span>`).join('')}
+ <div class="sp-center">
+   <div class="gpod">
+     ${[[-150,-180,0],[160,-140,.06],[-200,40,.12],[210,90,.04],[-120,170,.1],[140,180,.16],[-40,-220,.08],[60,-200,.14],[-230,-60,.02],[230,-20,.18],[-80,210,.05],[100,-90,.2]].map(p=>`<i class="cv" style="--sx:${p[0]}px;--sy:${p[1]}px;animation-delay:${(0.25+p[2]).toFixed(2)}s"></i>`).join('')}
+     <div class="gburst"></div>
+     <span class="swave" style="animation-delay:1.5s"></span><span class="swave" style="animation-delay:1.68s"></span>
+     <div class="gtile2">${MARK(46)}</div>
+   </div>
+   <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.6+i*0.055).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <p class="sp-tag">${t.w_tag}</p>
+ </div>
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+
+welcomeH:{cap:'Splash H — Coin flip 3D',sp:1,cls:'sp spH',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'wh')}
+ <div class="grain"></div>
+ <div class="sp-center">
+   <div class="hstage"><div class="hpod">
+     <span class="swave" style="animation-delay:1.55s"></span><span class="swave" style="animation-delay:1.72s"></span>
+     <span class="spop" style="top:-20px;left:-18px;animation-delay:1.5s">${ic('spark',15)}</span>
+     <span class="spop" style="top:-12px;right:-22px;animation-delay:1.62s">${ic('spark',12)}</span>
+     <span class="spop" style="bottom:-14px;left:-24px;animation-delay:1.7s">${ic('spark',11)}</span>
+     <span class="spop" style="bottom:-22px;right:-14px;animation-delay:1.58s">${ic('spark',13)}</span>
+     <div class="coin">${MARK(46)}</div>
+   </div></div>
+   <div class="cshadow"></div>
+   <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.62+i*0.06).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <p class="sp-tag">${t.w_tag}</p>
+ </div>
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
 
 /* ============ ONBOARDING ============ */
 phone:{cap:'Phone + OTP',html:t=>`
