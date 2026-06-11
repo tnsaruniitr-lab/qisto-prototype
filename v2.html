@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#06231B">
 <title>Qisto — Customer App v2</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="fonts/fonts.css" rel="stylesheet">
 <style>
   :root{
     --brand:#0EA471; --brand2:#3ED598; --brand-d:#097A52; --brand-l:#E6F6EF;
@@ -74,6 +72,10 @@
     body.appmode .stat{padding-top:calc(8px + env(safe-area-inset-top));height:auto}
     body.appmode .nav{padding-bottom:calc(12px + env(safe-area-inset-bottom))}
   }
+
+  /* native (APK / PWA standalone): real OS status bar replaces the fake one */
+  body.native .stat{display:none}
+  body.native .screen{padding-top:env(safe-area-inset-top,0px)}
 
   /* ============ phone frame ============ */
   .phone{width:328px;height:686px;background:#05070A;border-radius:48px;padding:10px;box-shadow:var(--sh2),0 34px 80px rgba(0,0,0,.55);flex-shrink:0;position:relative}
@@ -842,6 +844,7 @@ ar:{ dir:'rtl',
 let lang=(/[?&]lang=ar/.test(location.search))?'ar':(/[?&]lang=en/.test(location.search))?'en':'en';
 let theme=(()=>{try{const t=localStorage.getItem('qt');return (t==='green'||t==='violet')?t:'green'}catch(e){return 'green'}})();
 const APP=/[?&](app?|preview)\b/.test(location.search)||(window.innerWidth<1000&&!/gallery/.test(location.search+location.hash));
+const NATIVE=/[?&]native\b/.test(location.search)||(window.matchMedia&&(matchMedia('(display-mode: standalone)').matches||matchMedia('(display-mode: fullscreen)').matches));
 let active='welcome';
 const h0=(location.hash||'').slice(1);
 
@@ -1589,7 +1592,7 @@ function show(id){
     p.animate([{boxShadow:'0 0 0 4px var(--brand2)'},{boxShadow:'var(--sh2),0 34px 80px rgba(0,0,0,.55)'}],{duration:1000});}
   document.querySelectorAll('.sidebar a').forEach(a=>a.classList.toggle('active',a.dataset.go===id));
 }
-function go(id){ if(APP){active=id;try{history.replaceState(null,'','#'+id)}catch(e){};window.scrollTo(0,0);render();} else show(id); }
+function go(id){ if(APP){ if(id!==active){try{history.pushState(null,'','#'+id)}catch(e){}} active=id;window.scrollTo(0,0);render();} else show(id); }
 function bind(){document.querySelectorAll('[data-go]').forEach(e=>{e.onclick=ev=>{ev.stopPropagation();go(e.dataset.go);};});}
 window.setTheme=setTheme; window.replay=replay;
 function setLang(l){lang=l;render();const w=document.getElementById('sc-welcome');if(w&&!APP)w.closest('.phone').scrollIntoView({block:'center'});}
@@ -1600,6 +1603,7 @@ function setTheme(th){
   document.querySelectorAll('.sw').forEach(b=>b.classList.toggle('on',b.dataset.th===th));
 }
 if(APP) document.body.classList.add('appmode');
+if(NATIVE) document.body.classList.add('native');
 render();
 setTheme(theme);
 document.addEventListener('click',e=>{if(!e.target.closest('.cpick'))document.querySelectorAll('.cmenu').forEach(m=>m.classList.remove('open'));});
