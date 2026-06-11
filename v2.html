@@ -57,7 +57,7 @@
   .sidebar a{display:block;font-size:12.5px;color:#B9C0CF;padding:6px 9px;border-radius:8px;cursor:pointer;text-decoration:none}
   .sidebar a:hover{background:#171D2A;color:#fff}
   .sidebar a.active{background:var(--brand);color:#fff}
-  .stage{flex:1;display:flex;flex-wrap:wrap;gap:38px 30px;align-items:flex-start;justify-content:center;padding:42px;overflow-y:auto;height:100vh}
+  .stage{flex:1;display:flex;flex-wrap:wrap;gap:38px 30px;align-items:flex-start;justify-content:center;padding:42px;overflow:auto;height:100vh}
   .scapt{position:absolute;bottom:-26px;left:0;width:100%;text-align:center;font-size:11px;color:#717A8E;font-weight:600}
   .scapt .rp{cursor:pointer;color:#9AA3B8;border:1px solid #2A3140;border-radius:10px;padding:1px 8px;margin-inline-start:6px}
   .scapt .rp:hover{color:#fff;border-color:#3C4456}
@@ -301,7 +301,7 @@
   .sp-tag{opacity:0;font-size:13.5px;line-height:1.7;margin-top:16px;max-width:235px;animation:fadeup .7s both}
   .sp-ctas{position:relative;z-index:5}
   .sp-ctas .btn{opacity:0;animation:fadeup .6s both}
-  .wordmark{display:flex;overflow:hidden;margin-top:20px;padding-bottom:4px}
+  .wordmark{display:flex;direction:ltr;overflow:hidden;margin-top:20px;padding-bottom:4px}
   .wordmark b{font-family:var(--disp);font-weight:800;font-size:33px;letter-spacing:-.02em;display:inline-block;transform:translateY(115%);animation:lrise .55s cubic-bezier(.2,.7,.2,1) forwards}
   @keyframes lrise{to{transform:none}}
   .cpick{position:relative}
@@ -442,6 +442,292 @@
   .spH .sp-ctas .btn:nth-child(1){animation-delay:2.35s}
   .spH .sp-ctas .btn:nth-child(2){animation-delay:2.47s}
 
+  /* L — Bright Spring (vibrant blue + orange, bouncy geo) */
+  .spL{background:linear-gradient(155deg,#4461EF 0%,#3246D3 55%,#1E2CB0 100%);overflow:hidden}
+  .spL .lbg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(55% 40% at 28% 22%,rgba(255,255,255,.14),transparent);animation:lbgShift 5s ease-in-out infinite alternate}
+  @keyframes lbgShift{to{background:radial-gradient(55% 40% at 72% 78%,rgba(255,255,255,.14),transparent)}}
+  .spL .lsq{position:absolute;top:19%;left:0;width:100%;pointer-events:none;z-index:2;opacity:.75}
+  .spL .lsq path{stroke-dasharray:430;stroke-dashoffset:430;animation:drawSq .7s .05s ease-out forwards}
+  @keyframes drawSq{to{stroke-dashoffset:0}}
+  .lsh{position:absolute;pointer-events:none;will-change:transform;z-index:2;opacity:0}
+  .lsh.tri{animation:lshTri .55s cubic-bezier(.18,1.7,.3,1) forwards}
+  .lsh.circ{animation:lshCirc .5s cubic-bezier(.18,1.8,.3,1) forwards}
+  .lsh.diam{animation:lshDiam .6s cubic-bezier(.18,1.6,.3,1) forwards}
+  @keyframes lshTri{from{opacity:1;transform:scale(0) rotate(-40deg)}to{opacity:1;transform:scale(1) rotate(0deg)}}
+  @keyframes lshCirc{from{opacity:1;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+  @keyframes lshDiam{from{opacity:1;transform:scale(0) rotate(-20deg)}to{opacity:1;transform:scale(1) rotate(45deg)}}
+  .lsh-float{animation:lshFloat 5.5s ease-in-out infinite}
+  .lsh-float2{animation:lshFloat2 6.5s ease-in-out infinite}
+  .lsh-float3{animation:lshFloat3 7s ease-in-out infinite}
+  @keyframes lshFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(8deg)}}
+  @keyframes lshFloat2{0%,100%{transform:translateY(0) rotate(45deg)}50%{transform:translateY(-12px) rotate(52deg)}}
+  @keyframes lshFloat3{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-22px) rotate(-10deg)}}
+  .spL .ltile{width:88px;height:88px;border-radius:26px;background:#fff;color:var(--brand);display:flex;align-items:center;justify-content:center;box-shadow:0 20px 48px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.9);opacity:0;animation:lTileIn .6s .45s cubic-bezier(.18,1.7,.3,1) forwards}
+  @keyframes lTileIn{from{opacity:1;transform:scale(0) rotate(-18deg)}to{opacity:1;transform:none}}
+  .spL .wordmark b{animation:lWdBounce .5s cubic-bezier(.18,1.7,.3,1) both}
+  @keyframes lWdBounce{from{opacity:0;transform:translateY(28px) scale(.5)}to{opacity:1;transform:none}}
+  .spL .sp-center{z-index:5;padding-top:10px}
+  .spL .sp-tag{animation-delay:1.55s;color:rgba(255,255,255,.85)}
+  .spL .sp-ctas{z-index:6}
+  .spL .sp-ctas .btn:nth-child(1){animation-delay:1.75s;background:#FF7A28!important;border-color:#FF7A28!important;animation:fadeup .5s 1.75s both,lPulse 2.2s 2.3s ease-in-out infinite}
+  @keyframes lPulse{0%,100%{box-shadow:0 8px 22px rgba(255,122,40,.5)}50%{box-shadow:0 8px 32px rgba(255,122,40,.8),0 0 0 8px rgba(255,122,40,.12)}}
+  .spL .sp-ctas .btn:nth-child(2){animation-delay:1.88s}
+
+  /* M — Burst (explosion from center, colored rings, flying dots) */
+  .spM{background:linear-gradient(168deg,#0D1547 0%,#12196A 60%,#090E35 100%);overflow:hidden}
+  .spM .mrays{position:absolute;inset:0;pointer-events:none;z-index:0;background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.025) 0deg 8deg,transparent 8deg 18deg);transform-origin:center;animation:rot 60s linear infinite}
+  .spM .mburst{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(99,120,255,.9),rgba(67,97,238,.5) 50%,transparent 72%);filter:blur(22px);opacity:0;animation:mBurst .9s .08s ease-out forwards;pointer-events:none;z-index:1}
+  @keyframes mBurst{from{width:0;height:0;opacity:0}to{width:340px;height:340px;opacity:1}}
+  .mring{position:absolute;left:50%;top:42%;border-radius:50%;border:2.5px solid rgba(255,255,255,.5);transform:translate(-50%,-50%) scale(0);opacity:0;animation:mring 1.2s ease-out forwards;pointer-events:none;z-index:2}
+  @keyframes mring{0%{opacity:.9;transform:translate(-50%,-50%) scale(0)}100%{opacity:0;transform:translate(-50%,-50%) scale(2.8)}}
+  .mdot{position:absolute;border-radius:50%;opacity:0;animation:mdotFly .7s cubic-bezier(.2,.6,.4,1) forwards;pointer-events:none;z-index:2}
+  @keyframes mdotFly{0%{opacity:1;left:50%;top:42%;transform:translate(-50%,-50%) scale(1.2)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.1)}}
+  .spM .mtile{width:90px;height:90px;border-radius:27px;background:linear-gradient(140deg,#7B8FFF,#4461EF 60%,#2D3FD6);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 80px rgba(99,120,255,.8),0 24px 52px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.35);opacity:0;animation:mTileIn .7s .55s cubic-bezier(.18,1.5,.3,1) forwards;position:relative;z-index:5}
+  @keyframes mTileIn{from{opacity:0;transform:scale(0);filter:blur(30px)}to{opacity:1;transform:none;filter:blur(0)}}
+  .spM .wordmark b{animation:mWd .45s cubic-bezier(.18,1.5,.3,1) both}
+  @keyframes mWd{from{opacity:0;transform:scale(.3) translateY(18px)}to{opacity:1;transform:none}}
+  .spM .sp-tag{animation-delay:1.8s}
+  .spM .sp-ctas .btn:nth-child(1){animation-delay:2s}
+  .spM .sp-ctas .btn:nth-child(2){animation-delay:2.12s}
+
+  /* N — Pastel Light (bright blobs, brand tile, confetti) */
+  .spN{background:#F0F2FF;color:var(--ink);overflow:hidden}
+  .spN .cpick-btn,.spN .langpill{background:rgba(16,20,29,.06);border-color:rgba(16,20,29,.18);color:var(--ink2)}
+  .nblob{position:absolute;border-radius:50%;pointer-events:none}
+  .nblob.nb1{width:280px;height:280px;background:radial-gradient(circle,color-mix(in srgb,var(--brand2) 70%,#fff),color-mix(in srgb,var(--brand) 40%,transparent));filter:blur(52px);opacity:.5;top:-90px;right:-70px;animation:ndrift1 11s ease-in-out infinite alternate}
+  .nblob.nb2{width:240px;height:240px;background:radial-gradient(circle,#FF9A50,#FF7A28);filter:blur(48px);opacity:.38;bottom:80px;left:-90px;animation:ndrift2 13s ease-in-out infinite alternate}
+  .nblob.nb3{width:220px;height:220px;background:radial-gradient(circle,color-mix(in srgb,var(--mint) 70%,#fff),color-mix(in srgb,var(--brand2) 50%,transparent));filter:blur(44px);opacity:.32;bottom:-50px;right:10px;animation:ndrift3 12s ease-in-out infinite alternate}
+  @keyframes ndrift1{to{transform:translate(-44px,58px) scale(1.18)}}
+  @keyframes ndrift2{to{transform:translate(52px,-42px) scale(1.14)}}
+  @keyframes ndrift3{to{transform:translate(-32px,-54px) scale(1.2)}}
+  .ntile{width:90px;height:90px;border-radius:27px;background:linear-gradient(140deg,var(--brand2),var(--brand) 68%);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 18px 44px color-mix(in srgb,var(--brand) 50%,transparent),0 4px 14px rgba(0,0,0,.12);opacity:0;animation:nTileIn .7s .2s cubic-bezier(.18,1.7,.3,1) forwards}
+  @keyframes nTileIn{from{opacity:0;transform:scale(0) rotate(14deg)}to{opacity:1;transform:none}}
+  .spN .wordmark b{color:var(--brand-d);animation:lWdBounce .5s cubic-bezier(.18,1.7,.3,1) both}
+  .spN .sp-tag{color:var(--ink2);animation-delay:1.3s}
+  .spN .sp-ctas .btn:nth-child(1){animation-delay:1.5s}
+  .spN .sp-ctas .btn:nth-child(2){animation-delay:1.62s;background:rgba(16,20,29,.07)!important;border-color:rgba(16,20,29,.15)!important;color:var(--ink)!important}
+  .nconf{position:absolute;border-radius:3px;pointer-events:none;animation:nconfRise linear both}
+  @keyframes nconfRise{0%{opacity:0;transform:translateY(0) rotate(0deg) scale(0)}12%{opacity:1}88%{opacity:.6}100%{opacity:0;transform:translateY(var(--rise)) rotate(var(--rot)) scale(.7)}}
+
+  /* Finance Wallet screen */
+  .fw-head{padding:20px 20px 14px;background:#fff;box-shadow:0 1px 0 var(--line)}
+  .fw-bal-label{font-size:12.5px;color:var(--mut);font-weight:600}
+  .fw-bal{font-family:var(--disp);font-size:34px;font-weight:800;color:var(--ink);letter-spacing:-.025em;line-height:1.1;margin-top:3px;opacity:0;animation:fadeup .7s .2s both}
+  .fw-seg{display:flex;background:#ECEEF4;border-radius:13px;padding:3px;gap:2px;margin-top:12px}
+  .fw-seg button{flex:1;padding:7px 6px;border-radius:10px;font-size:12.5px;font-weight:700;color:var(--mut);background:none;border:none;cursor:pointer;font-family:var(--lat);transition:all .22s}
+  .fw-seg button.on{background:#fff;color:var(--brand);box-shadow:0 1px 5px rgba(0,0,0,.10)}
+  .fw-period{display:flex;gap:0;background:#ECEEF4;border-radius:10px;padding:3px;margin:14px 20px 0}
+  .fw-period button{flex:1;padding:5px 0;font-size:11.5px;font-weight:700;color:var(--mut);background:none;border:none;cursor:pointer;font-family:var(--lat);border-radius:8px;transition:all .2s}
+  .fw-period button.on{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  .fw-chart{padding:6px 14px 0;position:relative;margin-top:8px}
+  .fw-tip{position:absolute;background:var(--brand);color:#fff;font-size:11px;font-weight:800;padding:4px 10px;border-radius:9px;top:-2px;left:50%;transform:translateX(-18%);white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.18);pointer-events:none;z-index:4}
+  .fw-tip::after{content:'';position:absolute;bottom:-6px;left:30%;border:6px solid transparent;border-top-color:var(--brand);border-bottom-width:0}
+  .fw-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--brand);border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.2);top:20px;left:calc(50% + 16px);z-index:3}
+  .cht-blue{fill:none;stroke:var(--brand);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:470;stroke-dashoffset:470;animation:drawL 1.3s .4s ease-out forwards}
+  .cht-or{fill:none;stroke:#FF7A28;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:450;stroke-dashoffset:450;animation:drawL 1.5s .6s ease-out forwards}
+  .cht-area{fill:url(#fwGrad);opacity:0;animation:fwAreaIn .9s .8s ease-out forwards}
+  @keyframes drawL{to{stroke-dashoffset:0}}
+  @keyframes fwAreaIn{to{opacity:.22}}
+  .fw-clcard{margin:14px 20px 0;background:linear-gradient(135deg,var(--brand-d) -10%,var(--hero1) 52%,var(--hero2) 120%);border-radius:20px;padding:15px 18px;display:flex;align-items:center;gap:14px;color:#fff;box-shadow:0 8px 28px rgba(0,0,0,.18);cursor:pointer}
+  .cl-donut{position:relative;width:56px;height:56px;flex-shrink:0}
+  .cl-donut svg{transform:rotate(-90deg);overflow:visible}
+  .cl-pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800;color:#fff}
+  .fw-ops{display:flex;gap:10px;padding:14px 20px 0;scrollbar-width:none}
+  .fw-ops::-webkit-scrollbar{display:none}
+  .fw-op{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;cursor:pointer}
+  .fw-op .ico{width:54px;height:54px;border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh);transition:transform .15s}
+  .fw-op:active .ico{transform:scale(.92)}
+  .fw-op .lbl{font-size:11px;color:var(--mut);font-weight:700}
+  .fw-tx{margin:14px 20px 0;background:linear-gradient(150deg,var(--brand-d) 0%,var(--hero2) 100%);border-radius:22px;padding:18px;color:#fff}
+  .fw-tx-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .fw-tx-head h3{font-size:14.5px;font-weight:800}
+  .fw-tx-head .fall{font-size:12.5px;opacity:.72;font-weight:700}
+  .fw-txi{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.11)}
+  .fw-txi:last-child{border-bottom:none;padding-bottom:0}
+  .fw-txlogo{width:38px;height:38px;border-radius:13px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .fw-txinfo{flex:1;min-width:0}
+  .fw-txname{font-size:13px;font-weight:700;line-height:1.2}
+  .fw-txtime{font-size:11px;opacity:.58;margin-top:2px}
+  .fw-txamt{font-size:13.5px;font-weight:800;color:#FF9070}
+
+  /* O — Finance Flood (Finance App × Ink Flood: dark→blue flood + tropical plant + orange geo) */
+  .spO{background:#07090E;overflow:hidden}
+  .spO .oflood{position:absolute;left:50%;top:44%;width:1340px;height:1340px;margin:-670px 0 0 -670px;border-radius:50%;background:radial-gradient(circle at 40% 36%,#6B7FFF 0%,#3B4CEF 30%,#1E2CB0 60%,#0E1882 84%);transform:scale(0);animation:floodIn .95s .15s cubic-bezier(.25,.8,.3,1.05) forwards;z-index:1}
+  .spO .oflash{position:absolute;inset:0;background:#fff;opacity:0;animation:flashFx .5s .95s ease-out;z-index:6;pointer-events:none}
+  .osh{position:absolute;pointer-events:none;will-change:transform;z-index:3;opacity:0}
+  .osh.tri{animation:lshTri .55s cubic-bezier(.18,1.7,.3,1) forwards}
+  .osh.circ{animation:lshCirc .5s cubic-bezier(.18,1.8,.3,1) forwards}
+  .osh.diam{animation:lshDiam .6s cubic-bezier(.18,1.6,.3,1) forwards}
+  .osh-float{animation:lshFloat 5.5s ease-in-out infinite}
+  .osh-float2{animation:lshFloat2 6.5s ease-in-out infinite}
+  .osh-float3{animation:lshFloat3 7s ease-in-out infinite}
+  .spO .osq{stroke-dasharray:430;stroke-dashoffset:430;animation:drawSq .8s .6s ease-out forwards}
+  .spO .otile{width:88px;height:88px;border-radius:27px;background:#fff;color:var(--brand);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 50px rgba(0,0,0,.42);transform:scale(0);animation:punchIn .55s .9s cubic-bezier(.18,1.7,.3,1) forwards}
+  .spO .wordmark b{animation:slamIn .55s cubic-bezier(.2,.8,.3,1) both}
+  .spO .sp-tag{animation-delay:1.9s}
+  .spO .sp-ctas .btn:nth-child(1){animation-delay:2.1s;background:#FF7A28!important;border-color:#FF7A28!important;animation:fadeup .5s 2.1s both,lPulse 2.2s 2.6s ease-in-out infinite}
+  .spO .sp-ctas .btn:nth-child(2){animation-delay:2.22s}
+
+  /* P — Finance Classic (faithful reference: blue field, left title, growing plant, corner Start) */
+  .spP{background:radial-gradient(135% 95% at 82% 6%,#5A6EF8 0%,#4154E8 46%,#2F3FD0 100%);overflow:hidden}
+  .spP .pbg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(58% 42% at 26% 24%,rgba(255,255,255,.13),transparent);animation:lbgShift 6s ease-in-out infinite alternate}
+  .spP .pwave{position:absolute;top:9.5%;left:0;width:100%;z-index:2;pointer-events:none}
+  .spP .pwave path{stroke-dasharray:560;stroke-dashoffset:560;animation:drawSq 1.1s .2s ease-out forwards}
+  .spP .ptitle{position:absolute;top:29%;inset-inline-start:30px;z-index:4;text-align:start}
+  .spP .ptit{font-family:var(--disp);font-size:40px;font-weight:800;letter-spacing:-.02em;color:#fff;overflow:hidden;line-height:1.12;padding-bottom:3px;direction:ltr;width:fit-content}
+  .spP .ptit b{display:inline-block;transform:translateY(115%);animation:pRise .65s cubic-bezier(.2,.9,.3,1) forwards}
+  @keyframes pRise{to{transform:none}}
+  .spP .ptag{margin-top:11px;font-size:13.5px;line-height:1.7;color:rgba(255,255,255,.88);max-width:225px;opacity:0;animation:pSlideIn .7s .95s both}
+  .spP[dir="rtl"] .ptag{--sx:30px}
+  @keyframes pSlideIn{from{opacity:0;transform:translateX(var(--sx,-30px));filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+  .spP .pplant{position:absolute;bottom:0;inset-inline-start:0;width:74%;z-index:2;pointer-events:none}
+  .spP .pplant svg{display:block;width:100%;height:auto}
+  .pleaf{transform-box:fill-box;transform-origin:50% 100%;transform:scale(0);animation:pLeafGrow .9s cubic-bezier(.22,1.35,.32,1) forwards}
+  @keyframes pLeafGrow{to{transform:scale(1)}}
+  .psway{transform-box:fill-box;transform-origin:50% 100%;animation:pSway 6.5s 2s ease-in-out infinite alternate}
+  @keyframes pSway{from{transform:rotate(0deg)}to{transform:rotate(2.2deg)}}
+  .spP .pcoinw{position:absolute;z-index:3;pointer-events:none;animation:lshFloat 6s 2.4s ease-in-out infinite}
+  .spP .pcoin{display:flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(150deg,#F4F8FF,#C9D7FB 70%,#AFC3F7);color:#5F74E8;font-weight:800;font-family:var(--disp);box-shadow:0 12px 26px rgba(8,14,90,.32),inset 0 0 0 4px rgba(255,255,255,.9),inset 0 0 0 7px rgba(118,140,255,.35);transform:scale(0);animation:pCoinPop .6s cubic-bezier(.18,1.7,.3,1) forwards}
+  @keyframes pCoinPop{to{transform:scale(1)}}
+  .spP .pstart{position:absolute;inset-inline-end:0;bottom:0;z-index:6;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#FF9240,#FF7A28 70%);color:#fff;font-weight:800;font-size:14.5px;font-family:var(--disp);padding-block:21px 27px;padding-inline:32px 26px;border-start-start-radius:38px;cursor:pointer;text-decoration:none;transform:translateX(115%);animation:pBtnIn .75s 1.55s cubic-bezier(.2,1.15,.3,1) forwards,lPulse 2.4s 2.7s ease-in-out infinite}
+  .spP[dir="rtl"] .pstart{transform:translateX(-115%)}
+  @keyframes pBtnIn{to{transform:none}}
+  .spP .pstart .chev{display:inline-flex;animation:pNudge 1.5s 2.8s ease-in-out infinite}
+  @keyframes pNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+  .spP .palt{position:absolute;inset-inline-end:26px;bottom:92px;z-index:6;color:rgba(255,255,255,.85);font-size:12.5px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer;opacity:0;animation:fadeup .5s 2s both}
+
+  /* E2 — Ink Royale (classy/mature evolution of E: velvet flood, gold hairline ring, graceful type) */
+  .spE2{background:#06080C}
+  .spE2 .flood2{position:absolute;left:50%;top:44%;width:1340px;height:1340px;margin:-670px 0 0 -670px;border-radius:50%;background:radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--brand2) 55%,#fff) 0%,var(--brand2) 16%,var(--brand) 38%,var(--brand-d) 66%,var(--hero1) 100%);transform:scale(0);animation:floodIn2 1.15s .15s cubic-bezier(.3,.7,.25,1) forwards;z-index:1}
+  @keyframes floodIn2{to{transform:scale(1)}}
+  .spE2 .breathe{position:absolute;left:50%;top:42%;width:340px;height:340px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,#fff 22%,transparent),color-mix(in srgb,var(--brand2) 18%,transparent) 45%,transparent 68%);filter:blur(30px);opacity:0;animation:breatheIn .8s 1.2s forwards,breathe2 6s 2s ease-in-out infinite;z-index:2;pointer-events:none}
+  @keyframes breatheIn{to{opacity:.8}}
+  @keyframes breathe2{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.15)}}
+  .spE2 .bloom{position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 42%,var(--gold2),transparent 70%);opacity:0;animation:bloomFx 1.2s 1.1s ease-out;z-index:2;pointer-events:none;mix-blend-mode:screen}
+  @keyframes bloomFx{0%{opacity:0}25%{opacity:.2}100%{opacity:0}}
+  .spE2 .vig{position:absolute;inset:0;background:radial-gradient(120% 100% at 50% 45%,transparent 64%,rgba(0,0,0,.26) 100%);z-index:3;pointer-events:none}
+  .spE2 .scrim{position:absolute;inset:0;background:linear-gradient(180deg,transparent 36%,color-mix(in srgb,var(--hero2) 42%,transparent) 76%,color-mix(in srgb,var(--hero2) 62%,transparent) 100%);z-index:2;pointer-events:none}
+  .e2tile{width:94px;height:94px;border-radius:29px;background:radial-gradient(130% 130% at 32% 18%,#fff 36%,#F6F7FA 64%,#EDEFF6 100%);color:var(--brand);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(255,255,255,.16),0 0 46px rgba(255,255,255,.22),0 24px 56px rgba(4,8,18,.38),0 2px 8px rgba(4,8,18,.16),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(13,18,32,.06);opacity:0;transform:scale(.88);animation:qIn .9s 1.15s cubic-bezier(.25,.8,.25,1) forwards;position:relative;overflow:hidden}
+  @keyframes qIn{to{opacity:1;transform:scale(1)}}
+  .e2tile .e2wm{position:absolute;right:-30px;bottom:-34px;color:var(--brand);opacity:.055;transform:rotate(-14deg);pointer-events:none}
+  .e2tile .e2mark{position:relative;display:flex;transform:translate(-1px,-1px)}
+  .spE2 .wordmark{margin-top:22px;letter-spacing:.015em}
+  .spE2 .wordmark b{font-weight:700;animation:graceUp .8s cubic-bezier(.22,.7,.25,1) both;text-shadow:0 1px 4px rgba(4,8,18,.22)}
+  @keyframes graceUp{from{opacity:0;transform:translateY(14px);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+  .e2div{width:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);margin:18px auto 0;animation:divGrow .8s 2s cubic-bezier(.3,.7,.2,1) forwards}
+  @keyframes divGrow{to{width:64px}}
+  .spE2 .sp-tag{animation-delay:2.25s;color:rgba(255,255,255,.92);font-size:12.5px;letter-spacing:.02em;margin-top:14px;text-shadow:0 1px 4px rgba(4,8,18,.2)}
+  .spE2 .sp-ctas .btn:nth-child(1){animation-delay:2.5s}
+  .spE2 .sp-ctas .btn:nth-child(2){animation-delay:2.62s}
+  .mote{position:absolute;border-radius:50%;background:rgba(255,255,255,.9);opacity:0;animation:moteFloat linear infinite;z-index:2;pointer-events:none}
+  @keyframes moteFloat{0%{opacity:0;transform:translateY(0)}12%{opacity:.32}80%{opacity:.16}100%{opacity:0;transform:translateY(-130px)}}
+
+  /* Finance Wallet — card widget (My card row, no chart) */
+  .fw-sech{display:flex;justify-content:space-between;align-items:center;padding:0 20px;margin-top:14px}
+  .fw-sech-h{font-size:13.5px;font-weight:800;color:var(--ink)}
+  .fw-mycard-row{display:flex;gap:10px;align-items:stretch;margin-top:10px;padding:0 20px}
+  .fw-add-btn{width:58px;flex-shrink:0;border-radius:18px;border:2px dashed color-mix(in srgb,var(--brand) 35%,transparent);background:#fff;display:flex;align-items:center;justify-content:center;color:var(--brand);cursor:pointer;font-size:24px;font-weight:300}
+  .fw-card-w{flex:1;border-radius:22px;background:linear-gradient(130deg,var(--brand-d) 0%,var(--hero1) 52%,var(--hero2) 100%);padding:16px 18px 14px;position:relative;overflow:hidden;color:#fff;box-shadow:0 12px 36px color-mix(in srgb,var(--brand-d) 55%,transparent);min-height:108px}
+  .fw-card-w .cw-orb{position:absolute;right:-18px;top:-22px;width:88px;height:88px;border-radius:50%;background:#FF7A28}
+  .fw-card-w .cw-num{font-size:12.5px;font-weight:700;letter-spacing:.14em;position:relative;z-index:1;opacity:.88}
+  .fw-card-w .cw-bal-l{font-size:10.5px;opacity:.65;position:relative;z-index:1;margin-top:10px}
+  .fw-card-w .cw-bal{font-size:18px;font-weight:800;font-family:var(--disp);letter-spacing:-.01em;position:relative;z-index:1;line-height:1.15}
+  .fw-card-w .cw-tog{position:absolute;bottom:13px;right:14px;z-index:2;width:40px;height:22px;background:rgba(255,255,255,.25);border-radius:12px;display:flex;align-items:center;padding:3px}
+  .fw-card-w .cw-tog::after{content:'';width:16px;height:16px;border-radius:50%;background:#fff;margin-inline-start:auto}
+
+  /* ============ Mature set ✦ — Uber-grade refined screens ============ */
+  .m-body{padding:18px 20px 10px;background:#F7F7F8}
+  .m-hrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .m-ava{width:40px;height:40px;border-radius:50%;background:linear-gradient(150deg,var(--brand),var(--brand-d));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;font-family:var(--disp);box-shadow:0 6px 16px color-mix(in srgb,var(--brand) 35%,transparent)}
+  .m-greet{font-size:11.5px;color:var(--mut);font-weight:600}
+  .m-name{font-size:15.5px;font-weight:800;letter-spacing:-.01em}
+  .m-iconbtn{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #ECEDF0;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;color:var(--brand-d);box-shadow:0 2px 8px rgba(16,20,30,.06)}
+  .m-dot{position:absolute;top:10px;right:11px;width:7px;height:7px;border-radius:50%;background:#E5484D;border:1.5px solid #fff}
+  .m-lab{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+  .m-hero{margin:2px 0 20px}
+  .m-hero .amt{font-family:var(--disp);font-size:40px;font-weight:800;letter-spacing:-.035em;line-height:1.1;margin-top:6px}
+  .m-hero .amt small{font-size:16px;font-weight:700;color:var(--mut);letter-spacing:0;margin-inline-start:5px}
+  .m-prog{height:4px;border-radius:2px;background:#E9EAEE;margin-top:12px;overflow:hidden}
+  .m-prog i{display:block;height:100%;background:var(--brand);border-radius:2px}
+  .m-sub{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mut);font-weight:600;margin-top:8px}
+  .m-title{font-size:24px;font-weight:800;letter-spacing:-.03em;margin:4px 0 16px;font-family:var(--disp)}
+  .m-card{position:relative;border-radius:20px;background:linear-gradient(165deg,var(--brand2) -35%,var(--brand) 42%,var(--brand-d) 115%);color:#fff;padding:18px 20px;overflow:hidden;box-shadow:0 24px 48px -12px color-mix(in srgb,var(--brand-d) 55%,transparent),0 8px 20px -8px color-mix(in srgb,var(--brand-d) 42%,transparent),inset 0 1px 0 rgba(255,255,255,.28);margin-bottom:18px;cursor:pointer}
+  .m-card .mc-top{display:flex;justify-content:space-between;align-items:center}
+  .m-chip{font-size:9.5px;font-weight:800;letter-spacing:.14em;padding:5px 9px;border-radius:7px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12)}
+  .m-card .mc-num{font-family:var(--disp);font-size:14.5px;letter-spacing:.16em;opacity:.85;margin:22px 0 16px}
+  .m-card .mc-foot{display:flex;justify-content:space-between;align-items:flex-end}
+  .m-card .mc-foot .k{font-size:9.5px;opacity:.55;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+  .m-card .mc-foot .v{font-size:15px;font-weight:800;font-family:var(--disp);margin-top:3px}
+  .m-card .mc-lab{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.65;margin-top:18px}
+  .m-card .mc-amt{font-family:var(--disp);font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:5px}
+  .m-card .mc-amt small{font-size:14px;font-weight:700;opacity:.7;margin-inline-start:5px;letter-spacing:0}
+  .m-card .mc-bar{height:5px;border-radius:3px;background:rgba(255,255,255,.22);margin-top:14px;overflow:hidden}
+  .m-card .mc-bar i{display:block;height:100%;background:#fff;border-radius:3px}
+  .m-card .mc-meta{display:flex;justify-content:space-between;font-size:10.5px;font-weight:600;opacity:.8;margin-top:8px}
+  .m-card .mc-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-size:12px;font-weight:700;font-family:var(--disp);letter-spacing:.12em;opacity:.85}
+  .m-card .mc-wm{position:absolute;right:-36px;top:-32px;opacity:.05;pointer-events:none}
+  .m-card .mc-sheen{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.13) 48%,transparent 60%);background-size:240% 100%;background-position:130% 0;animation:cardSheen 5.5s 1.4s ease-in-out infinite;pointer-events:none}
+  @keyframes cardSheen{0%{background-position:130% 0}45%,100%{background-position:-120% 0}}
+  .m-stack{position:relative;margin:4px 0 18px;padding-top:9px}
+  .m-stack .behind{position:absolute;left:14px;right:14px;top:0;height:44px;border-radius:18px;background:color-mix(in srgb,var(--brand) 18%,#E3E5EB)}
+  .m-stack .m-card{margin-bottom:0}
+  .m-acts{display:flex;justify-content:space-between;margin-bottom:20px;padding:0 6px}
+  .m-act{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer}
+  .m-act .c{width:52px;height:52px;border-radius:50%;background:#fff;border:1px solid #ECEDF0;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:transform .15s}
+  .m-act:active .c{transform:scale(.93)}
+  .m-act span{font-size:11px;font-weight:700;color:var(--ink2)}
+  .m-row{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid #ECEDF0;border-radius:16px;padding:14px 16px;cursor:pointer;box-shadow:0 1px 2px rgba(16,20,30,.04),0 10px 24px -14px rgba(16,20,30,.12)}
+  .m-sq{width:42px;height:42px;border-radius:13px;background:var(--brand-l);display:flex;align-items:center;justify-content:center;color:var(--brand-d);flex-shrink:0}
+  .m-row .tt{font-size:13.5px;font-weight:700}
+  .m-row .ss{font-size:11.5px;color:var(--mut);margin-top:2px;font-weight:500}
+  .m-chev{margin-inline-start:auto;color:#C2C6CF}
+  .m-sech{display:flex;justify-content:space-between;align-items:baseline;margin:20px 2px 10px}
+  .m-sech h3{font-size:14.5px;margin:0}
+  .m-sech .lnk{font-size:12px;font-weight:700;color:var(--brand-d);cursor:pointer}
+  .m-list{background:#fff;border:1px solid #ECEDF0;border-radius:18px;padding:3px 16px;box-shadow:0 1px 2px rgba(16,20,30,.04),0 10px 24px -14px rgba(16,20,30,.12)}
+  .m-li{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #F1F2F4}
+  .m-li:last-child{border-bottom:none}
+  .m-li .av{width:38px;height:38px;border-radius:50%;background:#F1F2F4;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--ink2);font-family:var(--disp);flex-shrink:0}
+  .m-li .nm{font-size:13px;font-weight:700}
+  .m-li .dt2{font-size:11px;color:var(--mut);margin-top:2px;font-weight:500}
+  .m-li .am{margin-inline-start:auto;font-size:13px;font-weight:800;font-family:var(--disp)}
+  .m-li .am.in{color:#0A8A5F}
+  .m-kv{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #F1F2F4;font-size:13px}
+  .m-kv:last-child{border-bottom:none}
+  .m-kv .k2{color:var(--mut);font-weight:600}
+  .m-kv .v2{font-weight:800;font-family:var(--disp);text-align:end}
+  .m-date{width:42px;height:42px;border-radius:13px;background:#F1F2F4;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+  .m-date .d1{font-size:14px;font-weight:800;font-family:var(--disp);line-height:1}
+  .m-date .d2{font-size:8.5px;font-weight:800;letter-spacing:.08em;color:var(--mut);margin-top:2px}
+  .m-seg{display:flex;gap:5px;margin-top:14px}
+  .m-seg i{height:5px;border-radius:3px;flex:1;background:#E9EAEE}
+  .m-seg i.on{background:var(--brand)}
+  .m-tl{background:#fff;border:1px solid #ECEDF0;border-radius:18px;padding:5px 18px;margin-top:16px;box-shadow:0 1px 2px rgba(16,20,30,.04),0 10px 24px -14px rgba(16,20,30,.12)}
+  .m-tli{display:flex;gap:13px;padding:14px 0;border-bottom:1px solid #F1F2F4;align-items:flex-start}
+  .m-tli:last-child{border-bottom:none}
+  .m-tli .nd{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:10.5px;font-weight:800}
+  .m-tli .nd.done{background:var(--brand-l);color:var(--brand-d)}
+  .m-tli .nd.due{background:var(--brand);color:#fff}
+  .m-tli .nd.fut{border:2px dashed #D4D7DE;color:var(--mut)}
+  .m-tli .tt2{font-size:13.5px;font-weight:700}
+  .m-tli .ss2{font-size:11.5px;color:var(--mut);margin-top:2px;font-weight:500}
+  .m-tli .am2{margin-inline-start:auto;font-size:13px;font-weight:800;font-family:var(--disp);color:var(--ink2)}
+  .m-tli .am2.b2{color:var(--ink)}
+  .m-grp{background:#fff;border:1px solid #ECEDF0;border-radius:18px;padding:2px 16px;margin-bottom:14px;box-shadow:0 1px 2px rgba(16,20,30,.04),0 10px 24px -14px rgba(16,20,30,.12)}
+  .m-set{display:flex;align-items:center;gap:13px;padding:13.5px 0;border-bottom:1px solid #F1F2F4;cursor:pointer;font-size:13.5px;font-weight:600}
+  .m-set:last-child{border-bottom:none}
+  .m-set .ic2{width:34px;height:34px;border-radius:11px;background:var(--brand-l);display:flex;align-items:center;justify-content:center;color:var(--brand-d);flex-shrink:0}
+  .m-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(150deg,var(--brand),var(--brand-d));color:#fff;border-radius:14px;padding:15px;font-weight:800;font-size:14px;cursor:pointer;font-family:var(--disp);letter-spacing:-.01em;box-shadow:0 6px 18px color-mix(in srgb,var(--brand) 35%,transparent)}
+  .m-fade{position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(180deg,rgba(247,247,248,0) 0%,rgba(247,247,248,.85) 45%,#F7F7F8 78%);pointer-events:none;z-index:7}
+  .m-dock{position:absolute;left:50%;transform:translateX(-50%);bottom:26px;z-index:8;display:flex;gap:7px;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.9);border-radius:26px;padding:9px 10px;box-shadow:0 22px 48px -10px rgba(10,14,24,.28),0 4px 12px rgba(10,14,24,.08),inset 0 1px 0 #fff;animation:dockIn .55s .25s cubic-bezier(.18,1.2,.3,1) both}
+  @keyframes dockIn{from{opacity:0;transform:translateX(-50%) translateY(22px) scale(.92)}to{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}}
+  .m-dock .di{display:flex;flex-direction:column;align-items:center;gap:5px;padding:2px 5px;cursor:pointer}
+  .m-dock .di .dc{width:42px;height:42px;border-radius:14px;background:var(--brand-l);color:var(--brand-d);display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .15s}
+  .m-dock .di:active .dc{transform:scale(.9)}
+  .m-dock .di:first-child .dc{background:linear-gradient(150deg,var(--brand),var(--brand-d));color:#fff;box-shadow:0 6px 14px color-mix(in srgb,var(--brand) 45%,transparent)}
+  .m-dock .di span{font-size:10px;font-weight:700;color:var(--ink2)}
+  .m-btn:active{transform:scale(.985)}
+
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation-duration:.001s !important;animation-delay:0s !important;animation-iteration-count:1 !important;transition:none !important}
   }
@@ -450,7 +736,7 @@
 <body data-theme="green">
 <div class="sidebar">
   <h1><span style="width:23px;height:23px;display:inline-block;color:var(--brand2)"><svg width="23" height="23" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="29" stroke="currentColor" stroke-width="13"/><line x1="62" y1="62" x2="84" y2="84" stroke="currentColor" stroke-width="13" stroke-linecap="round"/></svg></span>Qisto</h1>
-  <div class="sub">Customer App · v2 concept · <a href="index.html">view v1</a> · <a href="?app">app preview ↗</a></div>
+  <div class="sub">Customer App · v2 concept · <a href="v1.html">view v1</a> · <a href="?app">app preview ↗</a></div>
   <div class="langtog">
     <button id="lang-en" class="on" onclick="setLang('en')">English</button>
     <button id="lang-ar" onclick="setLang('ar')">العربية</button>
@@ -458,19 +744,21 @@
   <div class="swatches">
     <button class="sw" data-th="green" onclick="setTheme('green')" style="background:#0EA471" title="Green"></button>
     <button class="sw" data-th="violet" onclick="setTheme('violet')" style="background:#5B3DF5" title="Violet"></button>
-    <button class="sw" data-th="ocean" onclick="setTheme('ocean')" style="background:#2563EB" title="Ocean"></button>
-    <button class="sw" data-th="sunset" onclick="setTheme('sunset')" style="background:#F4623A" title="Sunset"></button>
   </div>
   <div class="grp">Splash options</div>
   <a data-go="welcome">A · Monogram draw</a><a data-go="welcomeB">B · Aurora glass</a>
   <a data-go="welcomeC">C · Sonar pulse</a><a data-go="welcomeD">D · Ivory prestige</a>
-  <a data-go="welcomeE">E · Ink flood ⚡</a><a data-go="welcomeF">F · Title-card crash ⚡</a>
+  <a data-go="welcomeE">E · Ink flood ⚡</a><a data-go="welcomeE2">E2 · Ink Royale ✦</a><a data-go="welcomeF">F · Title-card crash ⚡</a>
   <a data-go="welcomeG">G · Constellation ⚡</a><a data-go="welcomeH">H · Coin flip 3D ⚡</a>
+  <a data-go="welcomeL">L · Bright Spring ⚡</a><a data-go="welcomeM">M · Burst ⚡</a><a data-go="welcomeN">N · Pastel Light ✦</a>
+  <a data-go="welcomeO">O · Finance Flood ✦</a><a data-go="welcomeP">P · Finance Classic ✦⚡</a>
   <div class="grp">Onboarding & KYC</div>
   <a data-go="phone">Phone + OTP</a><a data-go="idcap">ID capture</a>
   <a data-go="selfie">Selfie / liveness</a><a data-go="pending">KYC pending</a><a data-go="approved">KYC approved</a>
   <div class="grp">Home & Browse</div>
-  <a data-go="home">Home / Dashboard</a><a data-go="stores">Store directory</a><a data-go="notifs">Notifications</a>
+  <a data-go="home">Home / Dashboard (old)</a><a data-go="finwallet">Finance Wallet ✦</a><a data-go="stores">Store directory</a><a data-go="notifs">Notifications</a>
+  <div class="grp">Mature set ✦</div>
+  <a data-go="home2">Home · Refined</a><a data-go="wallet2">Wallet · Cards</a><a data-go="loandet2">Loan · Timeline</a><a data-go="profile2">Profile · Account</a>
   <div class="grp">Buy (in-store)</div>
   <a data-go="scan">QR scanner</a><a data-go="plan">Plan preview</a><a data-go="consent">Consent / Confirm</a>
   <a data-go="downpay">Collect down payment</a><a data-go="purchaseok">Goods released ✓</a><a data-go="declined">Declined</a>
@@ -495,21 +783,21 @@ en:{ dir:'ltr',
  qa_scan:'Scan', qa_hist:'History', see_all:'See all',
  stores:'Stores', search:'Search stores…', c_all:'All', c_gro:'Groceries', c_pha:'Pharmacy', c_ele:'Electronics', c_fas:'Fashion',
  st1:'Supermercado Central', st1d:'Groceries · in-store + online', st2:'Farmacia La Salud', st2d:'Pharmacy · in-store', st3:'TecnoStore', st3d:'Electronics · in-store + online', st4:'ModaVe', st4d:'Fashion · online', st5:'MotoMax', st5d:'Vehicles · in-store',
- notifs:'Notifications', n1:'You leveled up to Nivel 2!', n1d:'Bigger limit, lower down payment · 2h ago', n2:'Payment confirmed', n2d:'Farmacia confirmed your 280,000 SYP · yesterday', n3:'Payment due in 2 days', n3d:'Installment #2 · 280,000 SYP · ref LN-5821', n4:'Purchase approved', n4d:'Supermercado Central · 1,200,000 SYP · 3 days ago',
+ notifs:'Notifications', n1:'You leveled up to Nivel 2!', n1d:'Bigger limit, lower down payment · 2h ago', n2:'Payment confirmed', n2d:'Farmacia confirmed your 280,000 SYP · yesterday', n3:'Payment due Jun 30', n3d:'Monthly payment #2 · 280,000 SYP · ref LN-5821', n4:'Purchase approved', n4d:'Supermercado Central · 1,200,000 SYP · 3 days ago',
  sc_sub:'Scan the QR shown by the cashier', sc_hint:'The store enters the amount — you just scan and confirm.', sc_demo:'(demo) Simulate scan',
- pl_title:'Your payment plan', pl_today:'Pay today (down payment)', pl_then:'Then 3 payments of', pl_freq:'Frequency', pl_freqv:'Every 14 days · 0% interest', pl_sched:'Schedule', today:'Today', duenow:'due now', pl_uses:'Uses 1,200,000 SYP of your available credit.',
- cf_title:'Confirm purchase', cf_total:'Total', cf_down:'Down payment today', cf_inst:'3 installments', cf_agree:'Credit agreement', cf_c1:'I agree to repay <b>1,200,000 SYP</b> per the schedule above to the merchant.', cf_c2:'I understand missed payments affect my level & limit.', cf_disc:'By confirming, you accept the credit agreement. A signed receipt will be issued. <span class="mut">Qisto records this agreement; payments are made via your bank. Goods financed by the merchant.</span>', cf_cta:'Confirm & accept',
- dp_title:'Down payment', dp_h:'Pay 360,000 SYP to the cashier', dp_sub:"Hand the cashier your down payment (cash or transfer). They'll confirm it here.", dp_ref:'Loan reference', dp_status:'Status', dp_wait:'Waiting for merchant', dp_note:'Goods are released once the cashier confirms.', dp_demo:'(demo) Merchant confirmed',
+ pl_title:'Your payment plan', pl_today:'Pay today (down payment)', pl_then:'Amount financed', pl_freq:'Monthly payments', pl_freqv:'Due at each month end · 0% interest', pl_sched:'Schedule', today:'Today', duenow:'due now', pl_uses:'Uses 175,000 SYP of your available credit.', pl_first:'Your first payment is due Jun 30.', sr1:'Jun 30', sr2:'Jul 31', sr3:'Aug 31',
+ cf_title:'Confirm purchase', cf_total:'Total', cf_down:'Down payment today', cf_inst:'3 monthly payments', cf_agree:'Credit agreement', cf_c1:'I agree to repay <b>250,000 SYP</b> per the schedule above to the merchant.', cf_c2:'I understand missed payments affect my level & limit.', cf_disc:'By confirming, you accept the credit agreement. A signed receipt will be issued. <span class="mut">Qisto records this agreement; payments are made via your bank. Goods financed by the merchant.</span>', cf_cta:'Confirm & accept',
+ dp_title:'Down payment', dp_h:'Pay 75,000 SYP to the cashier', dp_sub:"Hand the cashier your down payment (cash or transfer). They'll confirm it here.", dp_ref:'Loan reference', dp_status:'Status', dp_wait:'Waiting for merchant', dp_note:'Goods are released once the cashier confirms.', dp_demo:'(demo) Merchant confirmed',
  ok_h:'All set!', ok_sub:'Down payment received. Enjoy your purchase.', outstanding:'Outstanding', nextdue:'Next due', ok_view:'View loan & receipt',
  dc_h:'Purchase not approved', dc_sub:'This 1,200,000 SYP purchase exceeds your available credit of 400,000 SYP. Pay down an existing loan or try a smaller amount.', dc_avail:'Available', dc_this:'This purchase', dc_back:'Back to home',
- ln_title:'My loans', active:'Active', paid:'Paid', ln_left:'left of 1,200,000 SYP', ln_next:'Next: 280,000 SYP on Jun 11 · LN-5821', ln_done:'600,000 SYP · completed May 10 · on time ✓',
- ld_title:'Loan detail', ld_pay:'Payments', ld_dp:'Down payment · 360,000 SYP', ld_dpd:'Paid today · confirmed by merchant', ld_i2:'280,000 SYP · due Jun 11', ld_i2d:'Next payment', pay:'Pay', ld_i3:'280,000 SYP · due Jun 25', ld_i4:'280,000 SYP · due Jul 09', ld_inst:'View payment instructions', ld_rcpt:'View receipt / agreement',
- pn_title:'Pay installment #2', pn_amt:'Amount due', pn_due:'due Jun 11', pn_to:'Transfer to the merchant', pn_bank:'Bank', pn_acct:'Account', pn_ref:'Reference (required)', pn_warn:"Always include the reference — it's how your payment gets matched. Pay the merchant directly; Qisto doesn't collect money.", pn_cta:"I've paid — upload proof",
+ ln_title:'My loans', active:'Active', paid:'Paid', ln_left:'left of 1,200,000 SYP', ln_next:'Next: 280,000 SYP due Jun 30 · LN-5821', ln_done:'600,000 SYP · completed May 10 · on time ✓',
+ ld_title:'Loan detail', ld_pay:'Payments', ld_dp:'Down payment · 360,000 SYP', ld_dpd:'Paid today · confirmed by merchant', ld_i2:'280,000 SYP · due Jun 30', ld_i2d:'Next monthly payment', pay:'Pay', ld_i3:'280,000 SYP · due Jul 31', ld_i4:'280,000 SYP · due Aug 31', ld_inst:'View payment instructions', ld_rcpt:'View receipt / agreement',
+ pn_title:'Pay monthly payment #2', pn_amt:'Amount due', pn_due:'due Jun 30', pn_to:'Transfer to the merchant', pn_bank:'Bank', pn_acct:'Account', pn_ref:'Reference (required)', pn_warn:"Always include the reference — it's how your payment gets matched. Pay the merchant directly; Qisto doesn't collect money.", pn_cta:"I've paid — upload proof",
  up_title:'Upload proof', up_sub:"Attach your transfer receipt. This notifies the merchant to confirm — it speeds things up but doesn't replace their confirmation.", up_box:'Tap to upload screenshot\\nor photo of transfer', up_paying:'Paying', up_cta:'Submit proof',
- aw_title:'Almost done', aw_h:'Waiting for merchant to confirm', aw_sub:"We've notified Supermercado Central. Your payment shows as <b>pending</b> until they confirm receipt.", aw_inst:'Installment #2', aw_pend:'Pending confirmation', aw_proof:'Proof uploaded', aw_note:"Taking too long? After 3 days our team steps in — <b>you won't be penalized</b> for a merchant delay.", aw_demo:'(demo) Merchant confirmed',
- pc_h:'Payment confirmed', pc_sub:'280,000 SYP received. 2 payments to go.', pc_view:'View loan',
+ aw_title:'Almost done', aw_h:'Waiting for merchant to confirm', aw_sub:"We've notified Supermercado Central. Your payment shows as <b>pending</b> until they confirm receipt.", aw_inst:'Monthly payment #2', aw_pend:'Pending confirmation', aw_proof:'Proof uploaded', aw_note:"Taking too long? After 3 days our team steps in — <b>you won't be penalized</b> for a merchant delay.", aw_demo:'(demo) Merchant confirmed',
+ pc_h:'Payment confirmed', pc_sub:'280,000 SYP received. One payment to go.', pc_view:'View loan',
  lu_badge:'NIVEL 1 → NIVEL 2', lu_h:'You leveled up!', lu_sub:'Paying on time pays off.', lu_newlim:'New limit', lu_down:'Down payment', lu_cta:'Shop now',
- ov_title:'Payment overdue', ov_h:'280,000 SYP is 3 days overdue', ov_sub:'Pay now to keep your level and avoid limit reduction.', ov_inst:'Installment #2', overdue:'Overdue', ov_was:'Was due', ov_imp:'Impact', ov_frozen:'Level frozen', ov_cta:'Pay 280,000 SYP now',
+ ov_title:'Payment overdue', ov_h:'280,000 SYP is 3 days overdue', ov_sub:'Pay now to keep your level and avoid limit reduction.', ov_inst:'Monthly payment #2', overdue:'Overdue', ov_was:'Was due', ov_imp:'Impact', ov_frozen:'Level frozen', ov_cta:'Pay 280,000 SYP now',
  nav_home:'Home', nav_stores:'Stores', nav_loans:'Loans', nav_profile:'Profile' },
 
 ar:{ dir:'rtl',
@@ -523,27 +811,27 @@ ar:{ dir:'rtl',
  qa_scan:'امسح', qa_hist:'السجل', see_all:'عرض الكل',
  stores:'المتاجر', search:'ابحث عن المتاجر…', c_all:'الكل', c_gro:'بقالة', c_pha:'صيدلية', c_ele:'إلكترونيات', c_fas:'أزياء',
  st1:'السوبر ماركت المركزي', st1d:'بقالة · بالمتجر + أونلاين', st2:'صيدلية الشفاء', st2d:'صيدلية · بالمتجر', st3:'تكنو ستور', st3d:'إلكترونيات · بالمتجر + أونلاين', st4:'أزياء', st4d:'أزياء · أونلاين', st5:'موتو ماكس', st5d:'مركبات · بالمتجر',
- notifs:'الإشعارات', n1:'لقد ارتقيت إلى المستوى 2!', n1d:'حدّ أكبر ودفعة أولى أقل · قبل ساعتين', n2:'تم تأكيد الدفعة', n2d:'أكّدت الصيدلية دفعتك 280,000 SYP · أمس', n3:'دفعة مستحقة خلال يومين', n3d:'القسط رقم 2 · 280,000 SYP · مرجع LN-5821', n4:'تمت الموافقة على الشراء', n4d:'السوبر ماركت المركزي · 1,200,000 SYP · قبل 3 أيام',
+ notifs:'الإشعارات', n1:'لقد ارتقيت إلى المستوى 2!', n1d:'حدّ أكبر ودفعة أولى أقل · قبل ساعتين', n2:'تم تأكيد الدفعة', n2d:'أكّدت الصيدلية دفعتك 280,000 SYP · أمس', n3:'دفعة مستحقة في 30 يونيو', n3d:'الدفعة الشهرية رقم 2 · 280,000 SYP · مرجع LN-5821', n4:'تمت الموافقة على الشراء', n4d:'السوبر ماركت المركزي · 1,200,000 SYP · قبل 3 أيام',
  sc_sub:'امسح رمز QR الذي يعرضه أمين الصندوق', sc_hint:'يُدخل المتجر المبلغ — كل ما عليك هو المسح والتأكيد.', sc_demo:'(تجريبي) محاكاة المسح',
- pl_title:'خطة الدفع الخاصة بك', pl_today:'ادفع اليوم (الدفعة الأولى)', pl_then:'ثم 3 دفعات بقيمة', pl_freq:'التكرار', pl_freqv:'كل 14 يوماً · بدون فوائد', pl_sched:'الجدول', today:'اليوم', duenow:'مستحقة الآن', pl_uses:'يستخدم 1,200,000 SYP من رصيدك المتاح.',
- cf_title:'تأكيد الشراء', cf_total:'الإجمالي', cf_down:'الدفعة الأولى اليوم', cf_inst:'3 أقساط', cf_agree:'اتفاقية الائتمان', cf_c1:'أوافق على سداد <b>1,200,000 SYP</b> وفقاً للجدول أعلاه إلى التاجر.', cf_c2:'أدرك أن تأخّر الدفعات يؤثّر على مستواي وحدّي الائتماني.', cf_disc:'بالتأكيد، فإنك توافق على اتفاقية الائتمان وسيتم إصدار إيصال. <span class="mut">تسجّل Qisto هذه الاتفاقية؛ وتُدفع المبالغ عبر مصرفك. التاجر هو من يموّل البضاعة.</span>', cf_cta:'تأكيد وموافقة',
- dp_title:'الدفعة الأولى', dp_h:'ادفع 360,000 SYP لأمين الصندوق', dp_sub:'سلّم أمين الصندوق دفعتك الأولى (نقداً أو تحويلاً). سيؤكّدها هنا.', dp_ref:'رقم القرض المرجعي', dp_status:'الحالة', dp_wait:'بانتظار التاجر', dp_note:'تُسلَّم البضاعة بمجرد تأكيد أمين الصندوق.', dp_demo:'(تجريبي) أكّد التاجر',
+ pl_title:'خطة الدفع الخاصة بك', pl_today:'ادفع اليوم (الدفعة الأولى)', pl_then:'المبلغ المموَّل', pl_freq:'الدفعات الشهرية', pl_freqv:'تستحق نهاية كل شهر · بدون فوائد', pl_sched:'الجدول', today:'اليوم', duenow:'مستحقة الآن', pl_uses:'يستخدم 175,000 SYP من رصيدك المتاح.', pl_first:'دفعتك الأولى تستحق في 30 يونيو.', sr1:'30 يونيو', sr2:'31 يوليو', sr3:'31 أغسطس',
+ cf_title:'تأكيد الشراء', cf_total:'الإجمالي', cf_down:'الدفعة الأولى اليوم', cf_inst:'3 دفعات شهرية', cf_agree:'اتفاقية الائتمان', cf_c1:'أوافق على سداد <b>250,000 SYP</b> وفقاً للجدول أعلاه إلى التاجر.', cf_c2:'أدرك أن تأخّر الدفعات يؤثّر على مستواي وحدّي الائتماني.', cf_disc:'بالتأكيد، فإنك توافق على اتفاقية الائتمان وسيتم إصدار إيصال. <span class="mut">تسجّل Qisto هذه الاتفاقية؛ وتُدفع المبالغ عبر مصرفك. التاجر هو من يموّل البضاعة.</span>', cf_cta:'تأكيد وموافقة',
+ dp_title:'الدفعة الأولى', dp_h:'ادفع 75,000 SYP لأمين الصندوق', dp_sub:'سلّم أمين الصندوق دفعتك الأولى (نقداً أو تحويلاً). سيؤكّدها هنا.', dp_ref:'رقم القرض المرجعي', dp_status:'الحالة', dp_wait:'بانتظار التاجر', dp_note:'تُسلَّم البضاعة بمجرد تأكيد أمين الصندوق.', dp_demo:'(تجريبي) أكّد التاجر',
  ok_h:'تم كل شيء!', ok_sub:'تم استلام الدفعة الأولى. استمتع بمشترياتك.', outstanding:'المتبقّي', nextdue:'الاستحقاق القادم', ok_view:'عرض القرض والإيصال',
  dc_h:'لم تتم الموافقة على الشراء', dc_sub:'هذه العملية بقيمة 1,200,000 SYP تتجاوز رصيدك المتاح البالغ 400,000 SYP. سدّد قرضاً قائماً أو جرّب مبلغاً أصغر.', dc_avail:'المتاح', dc_this:'هذه العملية', dc_back:'العودة للرئيسية',
- ln_title:'قروضي', active:'نشط', paid:'مدفوع', ln_left:'متبقٍّ من 1,200,000 SYP', ln_next:'التالي: 280,000 SYP في 11 يونيو · LN-5821', ln_done:'600,000 SYP · اكتمل في 10 مايو · في الوقت المحدد ✓',
- ld_title:'تفاصيل القرض', ld_pay:'الدفعات', ld_dp:'الدفعة الأولى · 360,000 SYP', ld_dpd:'مدفوعة اليوم · أكّدها التاجر', ld_i2:'280,000 SYP · تستحق 11 يونيو', ld_i2d:'الدفعة القادمة', pay:'ادفع', ld_i3:'280,000 SYP · تستحق 25 يونيو', ld_i4:'280,000 SYP · تستحق 9 يوليو', ld_inst:'عرض تعليمات الدفع', ld_rcpt:'عرض الإيصال / الاتفاقية',
- pn_title:'ادفع القسط رقم 2', pn_amt:'المبلغ المستحق', pn_due:'تستحق 11 يونيو', pn_to:'حوّل إلى التاجر', pn_bank:'المصرف', pn_acct:'الحساب', pn_ref:'الرقم المرجعي (مطلوب)', pn_warn:'أرفق الرقم المرجعي دائماً — به تتم مطابقة دفعتك. ادفع للتاجر مباشرةً؛ Qisto لا تُحصّل الأموال.', pn_cta:'لقد دفعت — ارفع الإثبات',
+ ln_title:'قروضي', active:'نشط', paid:'مدفوع', ln_left:'متبقٍّ من 1,200,000 SYP', ln_next:'التالي: 280,000 SYP تستحق 30 يونيو · LN-5821', ln_done:'600,000 SYP · اكتمل في 10 مايو · في الوقت المحدد ✓',
+ ld_title:'تفاصيل القرض', ld_pay:'الدفعات', ld_dp:'الدفعة الأولى · 360,000 SYP', ld_dpd:'مدفوعة اليوم · أكّدها التاجر', ld_i2:'280,000 SYP · تستحق 30 يونيو', ld_i2d:'الدفعة الشهرية القادمة', pay:'ادفع', ld_i3:'280,000 SYP · تستحق 31 يوليو', ld_i4:'280,000 SYP · تستحق 31 أغسطس', ld_inst:'عرض تعليمات الدفع', ld_rcpt:'عرض الإيصال / الاتفاقية',
+ pn_title:'ادفع الدفعة الشهرية رقم 2', pn_amt:'المبلغ المستحق', pn_due:'تستحق 30 يونيو', pn_to:'حوّل إلى التاجر', pn_bank:'المصرف', pn_acct:'الحساب', pn_ref:'الرقم المرجعي (مطلوب)', pn_warn:'أرفق الرقم المرجعي دائماً — به تتم مطابقة دفعتك. ادفع للتاجر مباشرةً؛ Qisto لا تُحصّل الأموال.', pn_cta:'لقد دفعت — ارفع الإثبات',
  up_title:'رفع الإثبات', up_sub:'أرفق إيصال التحويل. هذا يُخطر التاجر ليؤكّد — يُسرّع العملية لكنه لا يغني عن تأكيده.', up_box:'اضغط لرفع لقطة شاشة\\nأو صورة للتحويل', up_paying:'تدفع', up_cta:'إرسال الإثبات',
- aw_title:'أوشكنا على الانتهاء', aw_h:'بانتظار تأكيد التاجر', aw_sub:'لقد أخطرنا السوبر ماركت المركزي. تظهر دفعتك كـ <b>معلّقة</b> حتى يؤكّد الاستلام.', aw_inst:'القسط رقم 2', aw_pend:'بانتظار التأكيد', aw_proof:'تم رفع الإثبات', aw_note:'تأخّر الأمر؟ بعد 3 أيام يتدخّل فريقنا — <b>لن تتحمّل أي عقوبة</b> بسبب تأخّر التاجر.', aw_demo:'(تجريبي) أكّد التاجر',
- pc_h:'تم تأكيد الدفعة', pc_sub:'تم استلام 280,000 SYP. تبقّت دفعتان.', pc_view:'عرض القرض',
+ aw_title:'أوشكنا على الانتهاء', aw_h:'بانتظار تأكيد التاجر', aw_sub:'لقد أخطرنا السوبر ماركت المركزي. تظهر دفعتك كـ <b>معلّقة</b> حتى يؤكّد الاستلام.', aw_inst:'الدفعة الشهرية رقم 2', aw_pend:'بانتظار التأكيد', aw_proof:'تم رفع الإثبات', aw_note:'تأخّر الأمر؟ بعد 3 أيام يتدخّل فريقنا — <b>لن تتحمّل أي عقوبة</b> بسبب تأخّر التاجر.', aw_demo:'(تجريبي) أكّد التاجر',
+ pc_h:'تم تأكيد الدفعة', pc_sub:'تم استلام 280,000 SYP. تبقّت دفعة واحدة.', pc_view:'عرض القرض',
  lu_badge:'المستوى 1 ← المستوى 2', lu_h:'لقد ارتقيت بمستواك!', lu_sub:'الالتزام بالدفع يكافئك.', lu_newlim:'الحد الجديد', lu_down:'الدفعة الأولى', lu_cta:'تسوّق الآن',
- ov_title:'دفعة متأخّرة', ov_h:'تأخّرت 280,000 SYP لمدة 3 أيام', ov_sub:'ادفع الآن للحفاظ على مستواك وتجنّب خفض حدّك.', ov_inst:'القسط رقم 2', overdue:'متأخّرة', ov_was:'كانت مستحقة', ov_imp:'الأثر', ov_frozen:'تم تجميد المستوى', ov_cta:'ادفع 280,000 SYP الآن',
+ ov_title:'دفعة متأخّرة', ov_h:'تأخّرت 280,000 SYP لمدة 3 أيام', ov_sub:'ادفع الآن للحفاظ على مستواك وتجنّب خفض حدّك.', ov_inst:'الدفعة الشهرية رقم 2', overdue:'متأخّرة', ov_was:'كانت مستحقة', ov_imp:'الأثر', ov_frozen:'تم تجميد المستوى', ov_cta:'ادفع 280,000 SYP الآن',
  nav_home:'الرئيسية', nav_stores:'المتاجر', nav_loans:'قروضي', nav_profile:'حسابي' },
 };
 
 let lang='en';
-let theme=(()=>{try{return localStorage.getItem('qt')||'green'}catch(e){return 'green'}})();
-const APP=/[?&](app?|preview)\b/.test(location.search)||(window.innerWidth<820&&!/[?&]gallery/.test(location.search));
+let theme=(()=>{try{const t=localStorage.getItem('qt');return (t==='green'||t==='violet')?t:'green'}catch(e){return 'green'}})();
+const APP=/[?&](app?|preview)\b/.test(location.search)||(window.innerWidth<1000&&!/gallery/.test(location.search+location.hash));
 let active='welcome';
 const h0=(location.hash||'').slice(1);
 
@@ -593,7 +881,7 @@ const STI='<span class="sti" style="display:flex;align-items:center"><svg width=
 const sb='<div class="stat"><span class="tm">9:41</span>'+STI+'</div>';
 const sbW='<div class="stat w"><span class="tm">9:41</span>'+STI+'</div>';
 
-const THEMES=[['green','#0EA471'],['violet','#5B3DF5'],['ocean','#2563EB'],['sunset','#F4623A']];
+const THEMES=[['green','#0EA471'],['violet','#5B3DF5']];
 function spTop(t,k){return `<div class="sptop">
  <div class="cpick"><button class="cpick-btn" onclick="event.stopPropagation();document.getElementById('cm-${k}').classList.toggle('open')"><span class="cdot" style="background:var(--brand)"></span><span class="carr">▾</span></button><div class="cmenu" id="cm-${k}">${THEMES.map(o=>`<button class="cdot pick" title="${o[0]}" style="background:${o[1]}" onclick="event.stopPropagation();setTheme('${o[0]}');this.closest('.cmenu').classList.remove('open')"></button>`).join('')}</div></div>
  <div class="langpill" onclick="event.stopPropagation();setLang('${lang==='en'?'ar':'en'}')">${lang==='en'?'العربية':'English'}${ic('globe',14)}</div></div>`;}
@@ -602,7 +890,7 @@ function nl(s){return s.replace(/\\n/g,'<br>');}
 function bk(t,go){return `<span class="bk" data-go="${go}">${ic('back',17)}</span>`;}
 function nav(t,act){
   const tab=(id,k,icn)=>`<div class="tab ${act===k?'active':''}" data-go="${id}"><span class="tic">${ic(icn,21)}</span>${t['nav_'+k]}</div>`;
-  return `<div class="nav">${tab('home','home','home')}${tab('stores','stores','grid')}<div class="scanwrap" data-go="scan"><div class="scanbtn">${ic('scan',23)}</div></div>${tab('loans','loans','wallet')}${tab('approved','profile','user')}</div>`;
+  return `<div class="nav">${tab('home2','home','home')}${tab('stores','stores','grid')}<div class="scanwrap" data-go="scan"><div class="scanbtn">${ic('scan',23)}</div></div>${tab('loans','loans','wallet')}${tab('profile2','profile','user')}</div>`;
 }
 
 const QDRAW=`<svg class="qdraw" width="92" height="92" viewBox="0 0 100 100" fill="none">
@@ -623,7 +911,7 @@ welcome:{cap:'Splash A — Monogram draw',sp:1,cls:'sp spA',noSb:1,html:t=>`
    <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.35+i*0.055).toFixed(3)}s">${c}</b>`).join('')}</div>
    <p class="sp-tag">${t.w_tag}</p>
  </div>
- <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
 
 welcomeB:{cap:'Splash B — Aurora glass',sp:1,cls:'sp spB',noSb:1,html:t=>`
  ${sbW}${spTop(t,'wb')}
@@ -633,7 +921,7 @@ welcomeB:{cap:'Splash B — Aurora glass',sp:1,cls:'sp spB',noSb:1,html:t=>`
    <div class="shimmer">Qisto</div>
    <p class="sp-tag">${t.w_tag}</p>
  </div>
- <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
 
 welcomeC:{cap:'Splash C — Sonar pulse',sp:1,cls:'sp spC',noSb:1,html:t=>`
  ${sbW}${spTop(t,'wc')}
@@ -647,7 +935,7 @@ welcomeC:{cap:'Splash C — Sonar pulse',sp:1,cls:'sp spC',noSb:1,html:t=>`
    <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(0.45+i*0.05).toFixed(3)}s">${c}</b>`).join('')}</div>
    <p class="sp-tag">${t.w_tag}</p>
  </div>
- <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
 
 welcomeD:{cap:'Splash D — Ivory prestige',sp:1,cls:'sp spD',noSb:1,html:t=>`
  ${sb}${spTop(t,'wd')}
@@ -658,7 +946,7 @@ welcomeD:{cap:'Splash D — Ivory prestige',sp:1,cls:'sp spD',noSb:1,html:t=>`
    <span class="goldline"></span>
    <p class="sp-tag">${t.w_tag}</p>
  </div>
- <div class="ftr sp-ctas"><a class="btn inkb" data-go="phone">${t.create}</a><a class="btn gho" data-go="home">${t.have}</a></div>`},
+ <div class="ftr sp-ctas"><a class="btn inkb" data-go="phone">${t.create}</a><a class="btn gho" data-go="home2">${t.have}</a></div>`},
 
 welcomeE:{cap:'Splash E — Ink flood',sp:1,cls:'sp spE',noSb:1,html:t=>`
  ${sbW}${spTop(t,'we')}
@@ -668,7 +956,7 @@ welcomeE:{cap:'Splash E — Ink flood',sp:1,cls:'sp spE',noSb:1,html:t=>`
    <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.3+i*0.06).toFixed(3)}s">${c}</b>`).join('')}</div>
    <p class="sp-tag">${t.w_tag}</p>
  </div>
- <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
 
 welcomeF:{cap:'Splash F — Title-card crash',sp:1,cls:'sp spF',noSb:1,html:t=>`
  ${sbW}${spTop(t,'wf')}
@@ -682,7 +970,7 @@ welcomeF:{cap:'Splash F — Title-card crash',sp:1,cls:'sp spF',noSb:1,html:t=>`
    <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="--fx:${i%2?'-60px':'60px'};animation-delay:${(1.32+i*0.05).toFixed(3)}s">${c}</b>`).join('')}</div>
    <p class="sp-tag">${t.w_tag}</p>
  </div>
- <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
 
 welcomeG:{cap:'Splash G — Constellation',sp:1,cls:'sp spG',noSb:1,html:t=>`
  ${sbW}${spTop(t,'wg')}
@@ -698,7 +986,7 @@ welcomeG:{cap:'Splash G — Constellation',sp:1,cls:'sp spG',noSb:1,html:t=>`
    <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.6+i*0.055).toFixed(3)}s">${c}</b>`).join('')}</div>
    <p class="sp-tag">${t.w_tag}</p>
  </div>
- <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
 
 welcomeH:{cap:'Splash H — Coin flip 3D',sp:1,cls:'sp spH',noSb:1,html:t=>`
  ${sbW}${spTop(t,'wh')}
@@ -716,7 +1004,158 @@ welcomeH:{cap:'Splash H — Coin flip 3D',sp:1,cls:'sp spH',noSb:1,html:t=>`
    <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.62+i*0.06).toFixed(3)}s">${c}</b>`).join('')}</div>
    <p class="sp-tag">${t.w_tag}</p>
  </div>
- <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home">${t.have}</a></div>`},
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
+
+welcomeL:{cap:'Splash L — Bright Spring ⚡',sp:1,cls:'sp spL',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'wl')}
+ <div class="lbg"></div>
+ <svg class="lsq" viewBox="0 0 375 55" fill="none" style="position:absolute;top:19%;left:0;width:100%;z-index:2;pointer-events:none;opacity:.75">
+   <path d="M-10,35 C40,5 80,62 130,26 C180,-4 215,56 265,22 C305,-3 340,50 385,18" stroke="#FF7A28" stroke-width="2.5"/>
+ </svg>
+ <div class="lsh tri lsh-float" style="top:14%;right:10%;animation-delay:.1s"><svg width="32" height="28" viewBox="0 0 32 28"><path d="M16 1L31 27H1L16 1Z" fill="#FF7A28"/></svg></div>
+ <div class="lsh tri lsh-float3" style="top:9%;left:8%;animation-delay:.18s"><svg width="24" height="21" viewBox="0 0 24 21"><path d="M12 1L23 20H1L12 1Z" fill="#FF7A28" opacity=".8"/></svg></div>
+ <div class="lsh tri lsh-float2" style="top:38%;left:6%;animation-delay:.25s"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M9 1L17 15H1L9 1Z" fill="none" stroke="rgba(255,122,40,.65)" stroke-width="2"/></svg></div>
+ <div class="lsh circ lsh-float" style="top:7%;right:26%;width:14px;height:14px;background:#FF7A28;border-radius:50%;animation-delay:.08s"></div>
+ <div class="lsh circ lsh-float3" style="top:30%;right:8%;width:10px;height:10px;background:rgba(255,255,255,.5);border-radius:50%;animation-delay:.3s"></div>
+ <div class="lsh diam lsh-float2" style="top:20%;left:13%;width:15px;height:15px;background:rgba(255,255,255,.28);animation-delay:.15s"></div>
+ <div class="lsh diam lsh-float" style="top:26%;right:5%;width:18px;height:18px;border:2.5px solid rgba(255,122,40,.55);animation-delay:.22s"></div>
+ <div style="position:absolute;bottom:0;left:0;right:0;height:50%;z-index:1;pointer-events:none;overflow:hidden">
+   <svg viewBox="0 0 375 230" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;width:100%">
+     <path d="M42,230 C20,185 -5,108 98,46 C138,22 162,74 128,140 C110,180 74,218 42,230Z" fill="url(#llpA)" opacity=".82"/>
+     <path d="M318,230 C342,188 368,108 270,50 C238,30 218,84 252,150 C270,188 300,218 318,230Z" fill="url(#llpB)" opacity=".85"/>
+     <path d="M178,230 C155,188 126,112 188,54 C215,32 242,88 226,155 C214,196 196,222 178,230Z" fill="url(#llpC)"/>
+     <ellipse cx="92" cy="168" rx="26" ry="26" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+     <path d="M86,168 L90,172 L98,162" stroke="rgba(255,255,255,.55)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+     <ellipse cx="285" cy="182" rx="20" ry="20" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+     <text x="285" y="188" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="14" font-weight="700" font-family="system-ui,sans-serif">%</text>
+     <defs>
+       <linearGradient id="llpA" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6B9FFF"/><stop offset="100%" stop-color="#1A3AAE"/></linearGradient>
+       <linearGradient id="llpB" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#5585F5"/><stop offset="100%" stop-color="#0F2288"/></linearGradient>
+       <linearGradient id="llpC" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#88B2FF"/><stop offset="100%" stop-color="#2E52CC"/></linearGradient>
+     </defs>
+   </svg>
+ </div>
+ <div class="sp-center">
+   <div class="ltile">${ic('zap',36,2)}</div>
+   <div class="wordmark" style="margin-top:16px">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(0.6+i*0.07).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <p class="sp-tag">${t.w_tag}</p>
+ </div>
+ <div class="ftr sp-ctas"><a class="btn" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
+
+welcomeM:{cap:'Splash M — Burst ⚡',sp:1,cls:'sp spM',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'wm')}
+ <div class="mrays"></div>
+ <div class="mburst" style="width:0;height:0"></div>
+ <div class="mring" style="width:180px;height:180px;animation-delay:.12s"></div>
+ <div class="mring" style="width:180px;height:180px;animation-delay:.42s"></div>
+ <div class="mring" style="width:180px;height:180px;animation-delay:.72s"></div>
+ ${[...Array(14)].map((_,i)=>{const a=i*(360/14);const d=120+Math.round(Math.sin(i)*40);const sz=5+((i*3)%7);const co=i%3===0?'#FF7A28':i%3===1?'#7B9FFF':'#fff';return`<div class="mdot" style="width:${sz}px;height:${sz}px;background:${co};animation-delay:${(.1+i*.04).toFixed(2)}s;--dx:${Math.round(Math.cos(a*Math.PI/180)*d)}px;--dy:${Math.round(Math.sin(a*Math.PI/180)*d)}px"></div>`}).join('')}
+ <div class="sp-center" style="z-index:5">
+   <div class="mtile">${MARK(50)}</div>
+   <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.0+i*0.07).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <p class="sp-tag">${t.w_tag}</p>
+ </div>
+ <div class="ftr sp-ctas" style="position:relative;z-index:6"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
+
+welcomeN:{cap:'Splash N — Pastel Light ✦',sp:1,cls:'sp spN',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'wn')}
+ <div class="nblob nb1"></div><div class="nblob nb2"></div><div class="nblob nb3"></div>
+ ${[...Array(18)].map((_,i)=>{const x=8+Math.round((i*53)%84);const sz=6+((i*4)%8);const co=['#FF7A28','var(--brand)','var(--brand2)','var(--mint)','#FF9A50'][i%5];const delay=(i*.14).toFixed(2);const rise=`-${120+((i*28)%120)}px`;const rot=`${-180+((i*42)%360)}deg`;return`<div class="nconf" style="left:${x}%;bottom:-10px;width:${sz}px;height:${sz}px;background:${co};border-radius:${i%2?'50%':'3px'};animation-duration:${(2.2+i*.18).toFixed(2)}s;animation-delay:${delay}s;--rise:${rise};--rot:${rot}"></div>`}).join('')}
+ <div class="sp-center" style="z-index:3">
+   <div class="ntile">${MARK(50)}</div>
+   <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(0.4+i*0.07).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <p class="sp-tag">${t.w_tag}</p>
+ </div>
+ <div class="ftr sp-ctas" style="position:relative;z-index:4"><a class="btn" data-go="phone">${t.create}</a><a class="btn" data-go="home2" style="background:rgba(16,20,29,.08)!important;border-color:rgba(16,20,29,.15)!important;color:var(--ink)!important">${t.have}</a></div>`},
+
+welcomeO:{cap:'Splash O — Finance Flood ✦',sp:1,cls:'sp spO',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'wo')}
+ <div class="oflood"></div><div class="oflash"></div><div class="grain"></div>
+ <svg viewBox="0 0 375 55" fill="none" style="position:absolute;top:21%;left:0;width:100%;z-index:2;pointer-events:none;opacity:.85">
+   <path class="osq" d="M-10,38 C38,8 78,64 132,28 C178,-2 218,58 268,24 C308,-2 342,52 388,20" stroke="#FF7A28" stroke-width="2.5"/>
+ </svg>
+ <div class="osh tri osh-float" style="top:9%;right:7%;animation-delay:.32s"><svg width="40" height="36" viewBox="0 0 40 36"><path d="M20 1.5L38.5 34.5H1.5L20 1.5Z" fill="#FF7A28"/></svg></div>
+ <div class="osh circ osh-float3" style="top:7%;left:14%;width:14px;height:14px;background:#FF7A28;border-radius:50%;animation-delay:.48s"></div>
+ <div class="osh diam osh-float2" style="top:27%;left:7%;width:16px;height:16px;border:2.5px solid rgba(255,255,255,.5);animation-delay:.4s"></div>
+ <div class="osh diam osh-float" style="top:17%;right:24%;width:12px;height:12px;border:2px solid rgba(255,255,255,.35);animation-delay:.56s"></div>
+ <div class="osh tri osh-float3" style="top:36%;right:9%;animation-delay:.64s"><svg width="20" height="18" viewBox="0 0 20 18"><path d="M10 1L19 17H1L10 1Z" fill="none" stroke="rgba(255,255,255,.42)" stroke-width="2"/></svg></div>
+ <div style="position:absolute;bottom:0;left:0;right:0;height:58%;z-index:2;pointer-events:none;overflow:hidden">
+   <svg viewBox="0 0 375 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;width:100%">
+     <path d="M38,260 C10,228 -18,158 56,98 C90,70 130,112 100,172 C82,210 54,248 38,260Z" fill="url(#opL1)" opacity=".84"/>
+     <path d="M90,260 C60,220 26,150 94,84 C130,52 170,104 134,168 C114,208 92,248 90,260Z" fill="url(#opL2)" opacity=".92"/>
+     <path d="M183,260 C170,230 150,174 183,106 C197,78 220,120 206,180 C198,218 190,250 183,260Z" fill="url(#opL3)"/>
+     <path d="M137,260 C127,240 114,200 140,154 C152,134 170,157 160,204 C152,234 143,256 137,260Z" fill="url(#opL3)" opacity=".7"/>
+     <path d="M286,260 C316,220 350,150 282,84 C246,52 206,104 242,168 C262,208 282,248 286,260Z" fill="url(#opL2)" opacity=".90"/>
+     <path d="M338,260 C366,228 394,158 320,98 C286,70 246,112 276,172 C294,210 322,248 338,260Z" fill="url(#opL1)" opacity=".82"/>
+     <circle cx="80" cy="190" r="23" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.32)" stroke-width="1.5"/>
+     <text x="80" y="197" text-anchor="middle" fill="rgba(255,255,255,.60)" font-size="17" font-weight="700" font-family="system-ui,sans-serif">$</text>
+     <circle cx="298" cy="175" r="18" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.26)" stroke-width="1.5"/>
+     <text x="298" y="181" text-anchor="middle" fill="rgba(255,255,255,.52)" font-size="13" font-weight="700" font-family="system-ui,sans-serif">$</text>
+     <circle cx="186" cy="240" r="12" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.20)" stroke-width="1.5"/>
+     <defs>
+       <linearGradient id="opL1" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#8CBFFF"/><stop offset="100%" stop-color="#0E20A0"/></linearGradient>
+       <linearGradient id="opL2" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#A2CEFF"/><stop offset="100%" stop-color="#0C1E90"/></linearGradient>
+       <linearGradient id="opL3" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#B4D8FF"/><stop offset="100%" stop-color="#1230A8"/></linearGradient>
+     </defs>
+   </svg>
+ </div>
+ <div class="sp-center" style="z-index:5">
+   <div class="otile">${MARK(46)}</div>
+   <div class="wordmark" style="margin-top:18px">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.3+i*0.06).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <p class="sp-tag">${t.w_tag}</p>
+ </div>
+ <div class="ftr sp-ctas" style="position:relative;z-index:6"><a class="btn" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
+
+welcomeP:{cap:'Splash P — Finance Classic ✦⚡',sp:1,cls:'sp spP',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'wp')}
+ <div class="pbg"></div>
+ <svg class="pwave" viewBox="0 0 375 90" fill="none"><path d="M-8,30 C50,80 122,4 196,38 C262,68 322,20 384,42" stroke="#FF7A28" stroke-width="2.5" stroke-linecap="round"/></svg>
+ <div class="osh tri osh-float" style="top:9%;right:7%;animation-delay:.4s"><svg width="42" height="38" viewBox="0 0 36 34"><path d="M5 2L33 14L11 32Z" fill="#FF7A28"/></svg></div>
+ <div class="osh diam osh-float2" style="top:23%;left:9%;width:13px;height:13px;background:rgba(255,255,255,.35);animation-delay:.55s"></div>
+ <div class="osh circ osh-float3" style="top:37%;right:13%;width:12px;height:12px;background:#FF7A28;border-radius:50%;animation-delay:.62s"></div>
+ <div class="osh tri osh-float3" style="top:48%;right:6%;animation-delay:.72s"><svg width="22" height="19" viewBox="0 0 22 19"><path d="M11 1.5L20.5 17.5H1.5L11 1.5Z" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2"/></svg></div>
+ <div class="osh tri osh-float2" style="top:57%;left:7%;animation-delay:.8s"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M9 1L17 15H1L9 1Z" fill="none" stroke="rgba(255,122,40,.6)" stroke-width="2"/></svg></div>
+ <div class="osh circ osh-float" style="top:18%;left:30%;width:8px;height:8px;background:rgba(255,255,255,.45);border-radius:50%;animation-delay:.68s"></div>
+ <div class="ptitle">
+   <div class="ptit">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(0.5+i*0.055).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <p class="ptag">${t.w_tag}</p>
+ </div>
+ <div class="pplant">
+   <svg viewBox="0 0 260 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <g class="psway">
+       <path class="pleaf" style="animation-delay:.5s"  d="M114,298 C66,284 20,242 12,160 C58,192 96,248 118,296 Z" fill="url(#pgA)"/>
+       <path class="pleaf" style="animation-delay:.62s" d="M118,298 C66,250 40,140 74,60 C118,98 132,210 120,297 Z" fill="url(#pgB)"/>
+       <path class="pleaf" style="animation-delay:.74s" d="M122,298 C92,210 104,90 150,18 C186,100 162,225 126,297 Z" fill="url(#pgC)"/>
+       <path class="pleaf" style="animation-delay:.86s" d="M126,298 C134,222 164,140 226,96 C234,180 192,262 130,297 Z" fill="url(#pgB)"/>
+       <path class="pleaf" style="animation-delay:.98s" d="M130,298 C158,266 198,234 248,190 C246,256 196,294 134,298 Z" fill="url(#pgA)"/>
+       <path class="pleaf" style="animation-delay:1.08s" d="M112,298 C86,272 74,224 88,180 C112,206 120,260 116,297 Z" fill="url(#pgD)"/>
+       <path class="pleaf" style="animation-delay:1.15s" d="M124,298 C140,272 168,250 204,242 C192,282 156,298 128,298 Z" fill="url(#pgD)"/>
+     </g>
+     <defs>
+       <linearGradient id="pgA" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#8FA8FF"/><stop offset="100%" stop-color="#3346CE"/></linearGradient>
+       <linearGradient id="pgB" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#A8BFFF"/><stop offset="100%" stop-color="#2B3EC8"/></linearGradient>
+       <linearGradient id="pgC" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#C4D5FF"/><stop offset="100%" stop-color="#4458E0"/></linearGradient>
+       <linearGradient id="pgD" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#6E88F0"/><stop offset="100%" stop-color="#1E30B0"/></linearGradient>
+     </defs>
+   </svg>
+ </div>
+ <div class="pcoinw" style="left:34%;bottom:17%"><div class="pcoin" style="width:58px;height:58px;font-size:22px;animation-delay:1.2s">$</div></div>
+ <div class="pcoinw" style="left:6%;bottom:34%;animation-duration:7s"><div class="pcoin" style="width:34px;height:34px;font-size:14px;animation-delay:1.38s">$</div></div>
+ <div class="pcoinw" style="left:13%;bottom:6%;animation-duration:8s"><div class="pcoin" style="width:30px;height:30px;font-size:12px;animation-delay:1.52s">$</div></div>
+ <a class="palt" data-go="home2">${t.have}</a>
+ <a class="pstart" data-go="phone">${t.create} <span class="chev">${ic('chevr',16)}</span></a>`},
+
+welcomeE2:{cap:'Splash E2 — Ink Royale ✦',sp:1,cls:'sp spE2',noSb:1,html:t=>`
+ ${sbW}${spTop(t,'we2')}
+ <div class="flood2"></div><div class="breathe"></div><div class="bloom"></div><div class="grain"></div><div class="scrim"></div><div class="vig"></div>
+ ${[[14,68,2.4,7.5,2],[28,80,3.4,9,3],[46,75,4.2,8,2],[63,82,2.9,10,2],[78,70,3.8,7,3],[88,78,5,11,2],[35,88,4.6,9.5,2]].map(m=>`<span class="mote" style="left:${m[0]}%;top:${m[1]}%;width:${m[4]}px;height:${m[4]}px;animation-delay:${m[2]}s;animation-duration:${m[3]}s"></span>`).join('')}
+ <div class="sp-center">
+   <div class="e2tile"><span class="e2wm">${MARK(120)}</span><span class="e2mark">${MARK(54)}</span></div>
+   <div class="wordmark">${[...'Qisto'].map((c,i)=>`<b style="animation-delay:${(1.5+i*0.08).toFixed(3)}s">${c}</b>`).join('')}</div>
+   <div class="e2div"></div>
+   <p class="sp-tag">${t.w_tag}</p>
+ </div>
+ <div class="ftr sp-ctas"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho w" data-go="home2">${t.have}</a></div>`},
 
 /* ============ ONBOARDING ============ */
 phone:{cap:'Phone + OTP',html:t=>`
@@ -761,7 +1200,7 @@ approved:{cap:'KYC approved — Level 1',bg:'brand',html:t=>`
    <p style="opacity:.88;margin-top:9px;font-size:13.5px;line-height:1.6">${t.ap_sub}</p>
    <div class="glass" style="padding:20px;margin-top:22px;width:100%"><span class="lvlbadge">NIVEL 1</span><div class="big" style="margin-top:12px">400,000 <small>SYP</small></div><p style="opacity:.8;font-size:11.5px;margin-top:3px">${t.ap_limit}</p></div>
    <p style="opacity:.8;font-size:12px;margin-top:15px;line-height:1.6">${t.ap_tip}</p></div>
- <div class="ftr"><a class="btn lite" data-go="home">${t.ap_cta}</a></div>`},
+ <div class="ftr"><a class="btn lite" data-go="home2">${t.ap_cta}</a></div>`},
 
 /* ============ HOME & BROWSE ============ */
 home:{cap:'Home / Dashboard',html:t=>`
@@ -801,7 +1240,7 @@ notifs:{cap:'Notifications',html:t=>`
 /* ============ BUY FLOW ============ */
 scan:{cap:'QR scanner',noSb:1,cls:'dark',html:t=>`
  ${sbW}
- <div class="scanview"><span class="bk" data-go="home" style="position:absolute;top:10px;inset-inline-start:16px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.16);color:#fff;z-index:5">${ic('back',17)}</span>
+ <div class="scanview"><span class="bk" data-go="home2" style="position:absolute;top:10px;inset-inline-start:16px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.16);color:#fff;z-index:5">${ic('back',17)}</span>
    <p style="margin-bottom:24px;opacity:.82;font-size:13.5px">${t.sc_sub}</p>
    <div class="scanbox"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span><i class="ln"></i></div>
    <p class="scanhint">${t.sc_hint}</p>
@@ -813,14 +1252,15 @@ plan:{cap:'Plan preview',html:t=>`
    <div class="card center" style="background:var(--brand-l);border-color:transparent;box-shadow:none">
      <div class="slogo" style="margin:0 auto 8px;background:#fff;color:#0A8A5F">${ic('cart',20)}</div>
      <div class="b" style="font-size:13.5px">${t.st1}</div>
-     <div class="big" style="color:var(--brand-d);margin-top:4px">1,200,000 <small>SYP</small></div>
+     <div class="big" style="color:var(--brand-d);margin-top:4px">250,000 <small>SYP</small></div>
      <p class="mut" style="font-size:11.5px;margin-top:2px">Order #POS-99213</p></div>
    <div class="card">
-     <div class="row"><span class="b">${t.pl_today}</span><span class="b" style="color:var(--brand-d)">360,000 SYP</span></div>
-     <div class="row"><span class="mut">${t.pl_then}</span><span class="b">280,000 SYP</span></div>
+     <div class="row"><span class="b">${t.pl_today}</span><span class="b" style="color:var(--brand-d)">75,000 SYP</span></div>
+     <div class="row"><span class="mut">${t.pl_then}</span><span class="b">175,000 SYP</span></div>
      <div class="row"><span class="mut">${t.pl_freq}</span><span>${t.pl_freqv}</span></div></div>
    <div class="card soft"><h3 style="font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em">${t.pl_sched}</h3>
-     <div class="sched">${[[t.today,'360,000 SYP',t.duenow,1],['11 Jun','280,000 SYP','',0],['25 Jun','280,000 SYP','',0],['09 Jul','280,000 SYP','',0]].map(r=>`<div class="srow"><span class="sdot ${r[3]?'on':''}"></span><span class="sdate">${r[0]}</span><span class="samt">${r[1]}</span>${r[2]?`<span class="pill b">${r[2]}</span>`:''}</div>`).join('')}</div></div>
+     <div class="sched">${[[t.today,'75,000 SYP',t.duenow,1],[t.sr1,'58,333 SYP','',0],[t.sr2,'58,333 SYP','',0],[t.sr3,'58,334 SYP','',0]].map(r=>`<div class="srow"><span class="sdot ${r[3]?'on':''}"></span><span class="sdate">${r[0]}</span><span class="samt">${r[1]}</span>${r[2]?`<span class="pill b">${r[2]}</span>`:''}</div>`).join('')}</div>
+     <p class="m sm mut" style="margin-top:10px">${t.pl_first}</p></div>
    <p class="m mut center sm">${t.pl_uses}</p></div>
  <div class="ftr"><a class="btn" data-go="consent">${t.cont}</a></div>`},
 
@@ -828,9 +1268,9 @@ consent:{cap:'Consent / Confirm',html:t=>`
  <div class="top">${bk(t,'plan')}<h2>${t.cf_title}</h2></div>
  <div class="body">
    <div class="card">
-     <div class="row"><span class="mut">${t.cf_total}</span><span class="b disp">1,200,000 SYP</span></div>
-     <div class="row"><span class="mut">${t.cf_down}</span><span class="b disp">360,000 SYP</span></div>
-     <div class="row"><span class="mut">${t.cf_inst}</span><span class="b disp">280,000 SYP × 3</span></div></div>
+     <div class="row"><span class="mut">${t.cf_total}</span><span class="b disp">250,000 SYP</span></div>
+     <div class="row"><span class="mut">${t.cf_down}</span><span class="b disp">75,000 SYP</span></div>
+     ${[[t.sr1,'58,333'],[t.sr2,'58,333'],[t.sr3,'58,334']].map(r=>`<div class="row"><span class="mut">${r[0]}</span><span class="b disp">${r[1]} SYP</span></div>`).join('')}</div>
    <h3 style="margin-top:4px">${t.cf_agree}</h3>
    <div class="card"><div class="conf"><span class="ck">${ic('check',13)}</span><span>${t.cf_c1}</span></div><div class="conf"><span class="ck">${ic('check',13)}</span><span>${t.cf_c2}</span></div></div>
    <p class="m sm mut" style="line-height:1.7">${t.cf_disc}</p></div>
@@ -851,9 +1291,9 @@ purchaseok:{cap:'Goods released',bg:'brand',html:t=>`
  <div class="grain"></div>
  <div class="hero">${OK}<h1>${t.ok_h}</h1><p style="opacity:.88;margin-top:9px;font-size:13.5px">${t.ok_sub}</p>
    <div class="glass" style="padding:18px;margin-top:22px;width:100%;text-align:start">
-     <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span style="opacity:.8">${t.outstanding}</span><span class="b disp">840,000 SYP</span></div>
-     <div style="display:flex;justify-content:space-between;font-size:13px"><span style="opacity:.8">${t.nextdue}</span><span class="b disp">11 Jun · 280,000 SYP</span></div></div></div>
- <div class="ftr"><a class="btn lite" data-go="loandetail">${t.ok_view}</a><a class="btn gho w" data-go="home">${t.done}</a></div>`},
+     <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span style="opacity:.8">${t.outstanding}</span><span class="b disp">175,000 SYP</span></div>
+     <div style="display:flex;justify-content:space-between;font-size:13px"><span style="opacity:.8">${t.nextdue}</span><span class="b disp">${t.sr1} · 58,333 SYP</span></div></div></div>
+ <div class="ftr"><a class="btn lite" data-go="loandetail">${t.ok_view}</a><a class="btn gho w" data-go="home2">${t.done}</a></div>`},
 
 declined:{cap:'Declined',html:t=>`
  <div class="body center" style="display:flex;flex-direction:column;justify-content:center">
@@ -861,7 +1301,7 @@ declined:{cap:'Declined',html:t=>`
    <div class="card" style="margin-top:18px">
      <div class="row"><span class="mut">${t.dc_avail}</span><span class="b disp" style="color:#078066">400,000 SYP</span></div>
      <div class="row"><span class="mut">${t.dc_this}</span><span class="b disp" style="color:var(--bad)">1,200,000 SYP</span></div></div></div>
- <div class="ftr"><a class="btn" data-go="home">${t.dc_back}</a></div>`},
+ <div class="ftr"><a class="btn" data-go="home2">${t.dc_back}</a></div>`},
 
 /* ============ LOANS ============ */
 loans:{cap:'My loans',html:t=>`
@@ -932,7 +1372,7 @@ paid:{cap:'Payment confirmed',bg:'brand',html:t=>`
    <div class="glass" style="padding:18px;margin-top:22px;width:100%;text-align:start">
      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span style="opacity:.8">${t.outstanding}</span><span class="b disp">560,000 SYP</span></div>
      <div style="display:flex;justify-content:space-between;font-size:13px"><span style="opacity:.8">${t.nextdue}</span><span class="b disp">25 Jun · 280,000 SYP</span></div></div></div>
- <div class="ftr"><a class="btn lite" data-go="loandetail">${t.pc_view}</a><a class="btn gho w" data-go="home">${t.done}</a></div>`},
+ <div class="ftr"><a class="btn lite" data-go="loandetail">${t.pc_view}</a><a class="btn gho w" data-go="home2">${t.done}</a></div>`},
 
 /* ============ GROWTH & STATES ============ */
 levelup:{cap:'Level-up',bg:'brand',html:t=>`
@@ -948,7 +1388,148 @@ levelup:{cap:'Level-up',bg:'brand',html:t=>`
    <div class="glass" style="padding:19px;margin-top:20px;width:100%">
      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:9px;align-items:center"><span style="opacity:.8">${t.lu_newlim}</span><span class="b disp">400,000 → 1,000,000 SYP</span></div>
      <div style="display:flex;justify-content:space-between;font-size:13px;align-items:center"><span style="opacity:.8">${t.lu_down}</span><span class="b disp">60% → 40%</span></div></div></div>
- <div class="ftr"><a class="btn lite" data-go="home">${t.lu_cta}</a></div>`},
+ <div class="ftr"><a class="btn lite" data-go="home2">${t.lu_cta}</a></div>`},
+
+finwallet:{cap:'Finance Wallet — card layout ✦',html:t=>`
+ <div class="fw-head">
+   ${bk(t,'home')}
+   <div style="margin-top:4px"><div class="fw-bal-label">Total balance</div>
+   <div class="fw-bal">400,000 <small style="font-size:18px;font-weight:700;opacity:.6">SYP</small></div></div>
+   <div class="fw-seg"><button class="on">Purchases</button><button>Payments</button></div>
+ </div>
+ <div class="body" style="padding:0 0 8px;overflow-y:auto;background:#F2F4F8">
+   <div class="fw-sech"><span class="fw-sech-h">My card</span><span class="link" style="font-size:12px">Manage</span></div>
+   <div class="fw-mycard-row">
+     <div class="fw-add-btn">+</div>
+     <div class="fw-card-w">
+       <div class="cw-orb"></div>
+       <div class="cw-num">•••• •••• •••• 6543</div>
+       <div class="cw-bal-l">Balance</div>
+       <div class="cw-bal">400,000 SYP</div>
+       <div class="cw-tog"></div>
+     </div>
+   </div>
+   <div class="fw-clcard" data-go="loans" style="margin-top:14px">
+     <div class="cl-donut">
+       <svg width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="22" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="6"/><circle cx="28" cy="28" r="22" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="138.2" stroke-dashoffset="34.6" stroke-linecap="round"/></svg>
+       <div class="cl-pct">75%</div>
+     </div>
+     <div style="flex:1"><div style="font-size:11px;opacity:.72;margin-bottom:3px">Credit limit</div><div style="font-size:14.5px;font-weight:800;font-family:var(--disp);letter-spacing:-.01em">300,000 of 400,000 SYP</div></div>
+     <div style="opacity:.65;color:#fff">${ic('chevr',18)}</div>
+   </div>
+   <div class="fw-sech" style="margin-top:14px"><span class="fw-sech-h">Popular operations</span></div>
+   <div class="fw-ops">
+     <div class="fw-op" data-go="scan"><div class="ico" style="color:var(--brand)">${ic('scan',22)}</div><div class="lbl">Scan</div></div>
+     <div class="fw-op" data-go="plan"><div class="ico" style="color:var(--brand)">${ic('card',22)}</div><div class="lbl">Pay</div></div>
+     <div class="fw-op" data-go="stores"><div class="ico" style="color:var(--brand)">${ic('storef',22)}</div><div class="lbl">Stores</div></div>
+     <div class="fw-op" data-go="loans"><div class="ico" style="color:var(--brand)">${ic('doc',22)}</div><div class="lbl">Loans</div></div>
+   </div>
+   <div class="fw-tx" style="margin-top:14px">
+     <div class="fw-tx-head"><h3>Transactions</h3><span class="fall">All ▾</span></div>
+     <div class="fw-txi"><div class="fw-txlogo">🛒</div><div class="fw-txinfo"><div class="fw-txname">Supermercado Central</div><div class="fw-txtime">13 Jun · 10:22 AM</div></div><div class="fw-txamt">−360K SYP</div></div>
+     <div class="fw-txi"><div class="fw-txlogo">💊</div><div class="fw-txinfo"><div class="fw-txname">Farmacia La Salud</div><div class="fw-txtime">9 Jun · 3:14 PM</div></div><div class="fw-txamt">−84K SYP</div></div>
+     <div class="fw-txi"><div class="fw-txlogo">📱</div><div class="fw-txinfo"><div class="fw-txname">TecnoStore</div><div class="fw-txtime">7 Jun · 2:58 PM</div></div><div class="fw-txamt">−780K SYP</div></div>
+   </div>
+ </div>
+ ${nav(t,'home')}`},
+
+/* ============ MATURE SET ✦ ============ */
+home2:{cap:'Home · Refined ✦',html:t=>`
+ <div class="body m-body" style="padding-bottom:8px">
+   <div class="m-hrow">
+     <div style="display:flex;align-items:center;gap:11px;cursor:pointer" data-go="profile2"><div class="m-ava">M</div><div><div class="m-greet">Good morning</div><div class="m-name">María Haddad</div></div></div>
+     <span class="m-iconbtn" data-go="notifs">${ic('bell',18)}<i class="m-dot"></i></span>
+   </div>
+   <div class="m-card" data-go="wallet2">
+     <span class="mc-wm">${MARK(150)}</span><span class="mc-sheen"></span>
+     <div class="mc-top">${MARK(24)}<span class="m-chip">LEVEL 1</span></div>
+     <div class="mc-lab">Available credit</div>
+     <div class="mc-amt">200,000<small>SYP</small></div>
+     <div class="mc-bar"><i style="width:50%"></i></div>
+     <div class="mc-meta"><span>200,000 SYP in use</span><span>Limit 400,000</span></div>
+     <div class="mc-bottom"><span>••••&nbsp;&nbsp;4821</span><span>M. HADDAD</span></div>
+   </div>
+   <div class="m-row" data-go="loandet2">
+     <div class="m-sq">${ic('cal',19)}</div>
+     <div style="min-width:0"><div class="tt">Next payment</div><div class="ss">100,000 SYP · Supermercado Central</div></div>
+     <span style="margin-inline-start:auto;font-size:10.5px;font-weight:800;background:var(--brand-l);color:var(--brand-d);padding:5px 10px;border-radius:999px;flex-shrink:0;white-space:nowrap">Due Jun 30</span>
+   </div>
+   <div class="m-sech"><h3>Recent activity</h3><span class="lnk" data-go="loans">View all</span></div>
+   <div class="m-list">
+     ${[['S','Supermercado Central','18 Apr · Purchase','−400,000',''],['Q','Monthly payment 1 paid','31 May · Payment','+100,000','in'],['T','TecnoStore','7 Jun · Declined · over limit','—','']].map(r=>`<div class="m-li"><div class="av">${r[0]}</div><div><div class="nm">${r[1]}</div><div class="dt2">${r[2]}</div></div><div class="am ${r[4]}">${r[3]}</div></div>`).join('')}
+   </div>
+ </div>
+ ${nav(t,'home')}`},
+
+wallet2:{cap:'Wallet · Cards ✦',html:t=>`
+ <div class="body m-body" style="padding-bottom:8px">
+   <div class="m-title">Wallet</div>
+   <div class="m-stack">
+     <div class="behind"></div>
+     <div class="m-card">
+       <span class="mc-wm">${MARK(150)}</span><span class="mc-sheen"></span>
+       <div class="mc-top">${MARK(24)}<span class="m-chip">LEVEL 1</span></div>
+       <div class="mc-num">••••&nbsp;&nbsp;••••&nbsp;&nbsp;••••&nbsp;&nbsp;4821</div>
+       <div class="mc-foot"><div><div class="k">Available</div><div class="v">200,000 SYP</div></div><div style="text-align:end"><div class="k">Holder</div><div class="v" style="font-size:13px">M. HADDAD</div></div></div>
+     </div>
+   </div>
+   <div class="m-list" style="margin-bottom:4px">
+     <div class="m-kv"><span class="k2">Credit limit</span><span class="v2">400,000 SYP</span></div>
+     <div class="m-kv"><span class="k2">In use</span><span class="v2">200,000 SYP</span></div>
+     <div class="m-kv"><span class="k2">Available to spend</span><span class="v2" style="color:var(--brand-d)">200,000 SYP</span></div>
+   </div>
+   <div class="m-sech"><h3>Upcoming payments</h3><span class="lnk" data-go="loandet2">Details</span></div>
+   <div class="m-list">
+     ${[['30','JUN','Monthly payment 2 of 3','Supermercado Central','100,000'],['31','JUL','Monthly payment 3 of 3','Final payment','100,000']].map(r=>`<div class="m-li"><div class="m-date"><div class="d1">${r[0]}</div><div class="d2">${r[1]}</div></div><div><div class="nm">${r[2]}</div><div class="dt2">${r[3]}</div></div><div class="am">${r[4]}</div></div>`).join('')}
+   </div>
+   <a class="m-btn" data-go="paynow" style="margin-top:16px">Pay next payment</a>
+ </div>
+ ${nav(t,'home')}`},
+
+loandet2:{cap:'Loan detail · Timeline ✦',html:t=>`
+ <div class="top" style="background:#F7F7F8">${bk(t,'home2')}<h2>Loan LN-0005821</h2></div>
+ <div class="body m-body" style="padding-top:6px">
+   <div class="m-hero" style="margin-bottom:2px">
+     <div class="m-lab">Remaining balance</div>
+     <div class="amt" style="font-size:34px">200,000<small>SYP</small></div>
+     <div class="m-seg"><i class="on"></i><i></i><i></i></div>
+     <div class="m-sub"><span>1 of 3 payments made</span><span>Supermercado Central · 400,000</span></div>
+   </div>
+   <div class="m-tl">
+     <div class="m-tli"><div class="nd done">${ic('check',13)}</div><div><div class="tt2">Down payment</div><div class="ss2">18 Apr · Paid in store</div></div><div class="am2">100,000</div></div>
+     <div class="m-tli"><div class="nd done">${ic('check',13)}</div><div><div class="tt2">Monthly payment 1</div><div class="ss2">Paid May 31 · cash</div></div><div class="am2">100,000</div></div>
+     <div class="m-tli"><div class="nd due">2</div><div><div class="tt2">Monthly payment 2</div><div class="ss2">Due Jun 30</div></div><div class="am2 b2">100,000</div></div>
+     <div class="m-tli"><div class="nd fut">3</div><div><div class="tt2" style="color:var(--mut)">Monthly payment 3</div><div class="ss2">Due Jul 31</div></div><div class="am2" style="color:var(--mut)">100,000</div></div>
+   </div>
+   <div class="m-sech"><h3>Details</h3></div>
+   <div class="m-list">
+     <div class="m-kv"><span class="k2">Merchant</span><span class="v2">Supermercado Central</span></div>
+     <div class="m-kv"><span class="k2">Order</span><span class="v2">#POS-99213</span></div>
+     <div class="m-kv"><span class="k2">Plan</span><span class="v2">3 monthly payments · month-end</span></div>
+     <div class="m-kv"><span class="k2">Fees</span><span class="v2">0 SYP · interest-free</span></div>
+   </div>
+   <a class="m-btn" data-go="paynow" style="margin-top:16px">Pay 100,000 SYP early</a>
+ </div>`},
+
+profile2:{cap:'Profile · Account ✦',html:t=>`
+ <div class="body m-body" style="padding-bottom:8px">
+   <div class="m-title" style="margin-bottom:2px">María Haddad</div>
+   <div style="font-size:12.5px;color:var(--mut);font-weight:600;margin-bottom:16px">+963 944 555 019 · Verified</div>
+   <div class="m-row" style="margin-bottom:14px" data-go="levelup">
+     <div class="m-sq">${ic('award',19)}</div>
+     <div style="flex:1"><div class="tt">Level 1 · 400,000 SYP limit</div>
+       <div class="m-prog" style="margin-top:8px"><i style="width:66%"></i></div>
+       <div class="ss" style="margin-top:6px">2 of 3 on-time payments to Level 2</div></div>
+   </div>
+   <div class="m-grp">
+     ${[['smile','Personal information'],['card','Payment methods'],['doc','Statements & receipts']].map(r=>`<div class="m-set"><div class="ic2">${ic(r[0],17)}</div>${r[1]}<span class="m-chev">${ic('chevr',15)}</span></div>`).join('')}
+   </div>
+   <div class="m-grp">
+     ${[['bell','Notifications'],['shield','Privacy & security'],['search','Help centre']].map(r=>`<div class="m-set"><div class="ic2">${ic(r[0],17)}</div>${r[1]}<span class="m-chev">${ic('chevr',15)}</span></div>`).join('')}
+   </div>
+   <div data-go="welcomeE2" style="text-align:center;padding:6px 0 4px;font-size:13px;font-weight:700;color:#C04848;cursor:pointer">Sign out</div>
+ </div>
+ ${nav(t,'profile')}`},
 
 overdue:{cap:'Overdue',html:t=>`
  <div class="top">${bk(t,'loans')}<h2>${t.ov_title}</h2></div>
@@ -959,7 +1540,7 @@ overdue:{cap:'Overdue',html:t=>`
      <p class="m" style="color:#A33237;margin-top:6px">${t.ov_sub}</p></div>
    <div class="card">
      <div class="row"><span class="mut">${t.ov_inst}</span><span class="pill bad"><span class="dt pul"></span>${t.overdue}</span></div>
-     <div class="row"><span class="mut">${t.ov_was}</span><span class="b">11 Jun</span></div>
+     <div class="row"><span class="mut">${t.ov_was}</span><span class="b">${t.sr1}</span></div>
      <div class="row"><span class="mut">${t.ov_imp}</span><span class="mut">${t.ov_frozen}</span></div></div></div>
  <div class="ftr"><a class="btn danger" data-go="paynow">${t.ov_cta}</a></div>`},
 };
@@ -1012,6 +1593,7 @@ if(APP) document.body.classList.add('appmode');
 render();
 setTheme(theme);
 document.addEventListener('click',e=>{if(!e.target.closest('.cpick'))document.querySelectorAll('.cmenu').forEach(m=>m.classList.remove('open'));});
+window.addEventListener('hashchange',()=>{const h=(location.hash||'').slice(1);if(S[h]){if(APP){active=h;window.scrollTo(0,0);render();}else show(h);}});
 </script>
 </body>
 </html>

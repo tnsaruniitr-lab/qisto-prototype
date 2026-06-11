@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qisto — Customer App Wireframes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#5B3DF5; --brand2:#8B6FFF; --brand-d:#4A2FE0; --brand-l:#efebff;
+    --mint:#10D9A0; --mint-l:#e3faf3; --warn:#FF9F1C; --warn-l:#fff3e2;
+    --bad:#FF5A5F; --bad-l:#ffecee;
+    --ink:#15132b; --ink2:#4a4763; --mut:#9794ad; --line:#eeedf4; --bg:#f6f6fb; --card:#fff;
+    --r:22px; --sh:0 4px 18px rgba(24,20,60,.06); --sh2:0 10px 30px rgba(24,20,60,.10);
+    --lat:'Plus Jakarta Sans',-apple-system,'Segoe UI',Roboto,sans-serif;
+    --ar:'IBM Plex Sans Arabic','Geeza Pro',Tahoma,sans-serif;
+  }
+  body[data-theme="green"]{
+    --brand:#10B981; --brand2:#34D399; --brand-d:#0a8f63; --brand-l:#e3f8ef;
+    --mint:#0EA5A5; --mint-l:#e1f6f6;
+  }
+  body[data-theme="violet"]{
+    --brand:#5B3DF5; --brand2:#8B6FFF; --brand-d:#4A2FE0; --brand-l:#efebff;
+    --mint:#10D9A0; --mint-l:#e3faf3;
+  }
+  body[data-theme="ocean"]{
+    --brand:#2563EB; --brand2:#4F84F7; --brand-d:#1b4fc4; --brand-l:#e8effd;
+    --mint:#06B6D4; --mint-l:#e0f7fb;
+  }
+  body[data-theme="sunset"]{
+    --brand:#F4623A; --brand2:#FF8A5B; --brand-d:#d84a26; --brand-l:#ffeae3;
+    --mint:#0EA5A5; --mint-l:#e1f6f6;
+  }
+  .themesel{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:12.5px;font-weight:700;padding:7px 12px;border-radius:20px;cursor:pointer;font-family:inherit;-webkit-appearance:none;appearance:none;outline:none}
+  .themesel option{color:#15132b}
+  .swatches{display:flex;gap:8px;margin-bottom:16px}
+  .sw{width:30px;height:30px;border-radius:9px;border:2px solid transparent;cursor:pointer;padding:0}
+  .sw.on{border-color:#fff}
+  .cpick{position:relative}
+  .cpick-btn{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.32);border-radius:20px;padding:5px 8px;cursor:pointer;color:#fff;line-height:0}
+  .cdot{width:15px;height:15px;border-radius:50%;display:inline-block;border:none;padding:0}
+  .cmenu{position:absolute;top:36px;inset-inline-start:0;background:#fff;border-radius:16px;padding:9px;display:none;box-shadow:0 14px 32px rgba(0,0,0,.28);z-index:70}
+  .cmenu.open{display:flex;gap:9px}
+  .cmenu .cdot.pick{width:26px;height:26px;cursor:pointer;border:2px solid #fff;box-shadow:0 0 0 1.5px #e6e6f0}
+  .cmenu .cdot.pick:hover{transform:scale(1.12)}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+  body{font-family:var(--lat);background:#14122a;color:var(--ink);display:flex;min-height:100vh}
+  /* sidebar (dev chrome) */
+  .sidebar{width:248px;background:#100e22;color:#cfcce6;padding:18px 14px;overflow-y:auto;height:100vh;position:sticky;top:0;flex-shrink:0}
+  .sidebar h1{font-size:17px;color:#fff;font-weight:800;letter-spacing:-.02em}
+  .sidebar .sub{font-size:11px;color:#7d7aa3;margin-bottom:14px}
+  .langtog{display:flex;gap:6px;background:#1d1a38;border-radius:11px;padding:4px;margin-bottom:16px}
+  .langtog button{flex:1;border:none;background:transparent;color:#a6a3c8;font-size:12px;font-weight:700;padding:7px;border-radius:8px;cursor:pointer;font-family:inherit}
+  .langtog button.on{background:var(--brand);color:#fff}
+  .sidebar .grp{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#615d87;margin:15px 0 5px;font-weight:700}
+  .sidebar a{display:block;font-size:12.5px;color:#cfcce6;padding:6px 9px;border-radius:8px;cursor:pointer;text-decoration:none}
+  .sidebar a:hover{background:#231f3f;color:#fff}
+  .sidebar a.active{background:var(--brand);color:#fff}
+  .stage{flex:1;display:flex;flex-wrap:wrap;gap:34px 28px;align-items:flex-start;justify-content:center;padding:38px;overflow-y:auto;height:100vh}
+  /* mobile app mode (client preview) */
+  body.appmode{display:block}
+  body.appmode .sidebar{display:none}
+  body.appmode .stage{display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;padding:0;height:100dvh;background:#14122a}
+  body.appmode .scapt{display:none}
+  @media(max-width:700px){
+    body.appmode .phone{width:100vw;height:100dvh;border-radius:0;padding:0;background:none;box-shadow:none}
+    body.appmode .island{display:none}
+    body.appmode .screenwrap{border-radius:0}
+    body.appmode .stat{padding-top:calc(7px + env(safe-area-inset-top))}
+  }
+  /* phone */
+  .phone{width:328px;height:686px;background:#0b0a16;border-radius:46px;padding:10px;box-shadow:var(--sh2),0 30px 70px rgba(0,0,0,.5);flex-shrink:0;position:relative}
+  .screenwrap{width:100%;height:100%;background:var(--bg);border-radius:38px;overflow:hidden;position:relative}
+  .island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:104px;height:28px;background:#0b0a16;border-radius:16px;z-index:50}
+  .screen{display:flex;flex-direction:column;height:100%;animation:f .3s ease}
+  .screen[dir="rtl"]{font-family:var(--ar)}
+  .screen[dir="rtl"] .bk{transform:scaleX(-1)}
+  @keyframes f{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .scapt{position:absolute;bottom:-25px;left:0;width:100%;text-align:center;font-size:11px;color:#86839f;font-weight:500}
+  .stat{height:50px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 7px;font-size:13px;font-weight:700;flex-shrink:0}
+  .screen[data-bg="brand"] .stat{color:#fff}
+  /* generic */
+  .body{flex:1;overflow-y:auto;padding:18px}
+  .body::-webkit-scrollbar{width:0}
+  .top{display:flex;align-items:center;gap:12px;padding:6px 18px 14px}
+  .top .bk{font-size:22px;color:var(--ink);cursor:pointer;font-weight:600}
+  .top h2{font-size:18px;font-weight:700;letter-spacing:-.02em}
+  h2,h1,h3{letter-spacing:-.02em}
+  h3{font-size:15px;font-weight:700;margin-bottom:9px}
+  p.m{font-size:13.5px;color:var(--ink2);line-height:1.6}
+  .card{background:var(--card);border-radius:var(--r);padding:17px;box-shadow:var(--sh);margin-bottom:13px}
+  .btn{display:block;width:100%;background:var(--brand);color:#fff;border:none;padding:16px;border-radius:16px;font-size:15px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;font-family:inherit;box-shadow:0 8px 20px rgba(20,18,50,.16);letter-spacing:-.01em}
+  .btn:active{transform:scale(.98)}
+  .btn.sec{background:var(--brand-l);color:var(--brand);box-shadow:none}
+  .btn.gho{background:transparent;color:var(--mut);box-shadow:none;font-weight:600}
+  .btn.lite{background:#fff;color:var(--brand);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+  .ftr{padding:14px 18px 20px;flex-shrink:0}
+  .ftr .btn+.btn{margin-top:8px}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:20px}
+  .pill.ok{background:var(--mint-l);color:#06a47a} .pill.warn{background:var(--warn-l);color:#c9760a}
+  .pill.bad{background:var(--bad-l);color:#e23b40} .pill.b{background:var(--brand-l);color:var(--brand)}
+  .row{display:flex;justify-content:space-between;align-items:center;font-size:14px;padding:10px 0;font-weight:500}
+  .row+.row{border-top:1px solid var(--line)}
+  .mut{color:var(--mut);font-weight:500} .b{font-weight:700} .center{text-align:center}
+  .field{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px;font-size:14px;margin-bottom:10px;color:var(--mut);font-weight:600}
+  .big{font-size:26px;font-weight:800;letter-spacing:-.03em}
+  /* brand */
+  .screen[data-bg="brand"]{background:radial-gradient(120% 80% at 80% 0%,var(--brand2) 0%,var(--brand) 45%,var(--brand-d) 100%)}
+  .hero{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;padding:32px}
+  .hero h1{font-size:27px;font-weight:800} .hero .logo{width:78px;height:78px;background:#fff;color:var(--brand);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:38px;margin-bottom:20px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+  .badge{width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:44px;margin:0 auto 16px}
+  .glass{background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:20px}
+  .lvlbadge{background:rgba(255,255,255,.22);font-size:11px;font-weight:800;padding:4px 11px;border-radius:20px;letter-spacing:.04em}
+  /* credit card */
+  .creditcard{background:radial-gradient(130% 90% at 85% 10%,var(--brand2),var(--brand) 55%,var(--brand-d));border-radius:22px;padding:20px;color:#fff;margin-bottom:15px;box-shadow:0 14px 30px rgba(20,18,50,.22);position:relative;overflow:hidden}
+  .creditcard::after{content:'';position:absolute;right:-30px;top:-30px;width:120px;height:120px;background:rgba(255,255,255,.12);border-radius:50%}
+  .creditcard .lab{font-size:11px;opacity:.85;font-weight:600}
+  .bar{height:8px;background:rgba(255,255,255,.28);border-radius:6px;margin:11px 0 7px;overflow:hidden}
+  .bar i{display:block;height:100%;background:#fff;border-radius:6px}
+  /* scan */
+  .scanview{flex:1;background:#0f0d1c;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;position:relative}
+  .scanbox{width:190px;height:190px;border-radius:28px;position:relative;box-shadow:0 0 0 3px var(--brand2)}
+  .scanbox span{position:absolute;width:26px;height:26px;border:3px solid var(--mint)}
+  .scanbox .tl{top:-3px;left:-3px;border-right:0;border-bottom:0;border-radius:12px 0 0 0}
+  .scanbox .tr{top:-3px;right:-3px;border-left:0;border-bottom:0;border-radius:0 12px 0 0}
+  .scanbox .bl{bottom:-3px;left:-3px;border-right:0;border-top:0;border-radius:0 0 0 12px}
+  .scanbox .br{bottom:-3px;right:-3px;border-left:0;border-top:0;border-radius:0 0 12px 0}
+  .scanbox::after{content:'';position:absolute;left:10px;right:10px;top:50%;height:2px;background:var(--mint);box-shadow:0 0 14px var(--mint)}
+  /* timeline */
+  .timeline .step{display:flex;gap:13px;padding-bottom:16px;position:relative}
+  .timeline .dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;z-index:2}
+  .timeline .step:not(:last-child)::before{content:'';position:absolute;inset-inline-start:14px;top:28px;bottom:2px;width:2px;background:var(--line)}
+  .upbox{border:2px dashed #cdc8ec;border-radius:18px;padding:30px;text-align:center;color:var(--mut);font-size:13px;background:#faf9ff;font-weight:600}
+  .store{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+  .slogo{width:46px;height:46px;border-radius:14px;background:var(--brand-l);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .notif{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .notif .ic{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+  .conf{font-size:13.5px;display:flex;gap:10px;align-items:flex-start;padding:9px 0;line-height:1.5}
+  .ck{width:22px;height:22px;background:var(--brand);border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:800}
+  .chips{display:flex;gap:8px;margin-bottom:15px;flex-wrap:wrap}
+  .chip{font-size:12px;font-weight:600;padding:7px 13px;border-radius:20px;background:#fff;border:1.5px solid var(--line);color:var(--mut)}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  /* nav */
+  .nav{display:flex;background:#fff;border-top:1px solid var(--line);flex-shrink:0;padding:9px 0 8px}
+  .nav>div{flex:1;text-align:center;font-size:10px;color:var(--mut);cursor:pointer;font-weight:600}
+  .nav .ic{font-size:19px;display:block;margin-bottom:3px}
+  .nav>div.active{color:var(--brand)}
+  .nav .scan{margin-top:-30px}
+  .nav .scanbtn{width:54px;height:54px;background:linear-gradient(135deg,var(--brand2),var(--brand));border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:23px;margin:0 auto 3px;box-shadow:0 8px 18px rgba(20,18,50,.3)}
+</style>
+</head>
+<body data-theme="green">
+<div class="sidebar">
+  <h1 style="display:flex;align-items:center;gap:8px"><span style="width:23px;height:23px;display:inline-block;color:var(--brand2)"><svg width="23" height="23" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:inherit"><circle cx="50" cy="50" r="29" stroke="currentColor" stroke-width="13"/><line x1="62" y1="62" x2="84" y2="84" stroke="currentColor" stroke-width="13" stroke-linecap="round"/></svg></span>Qisto</h1>
+  <div class="sub">Customer App · Wireframes</div>
+  <div class="langtog">
+    <button id="lang-en" class="on" onclick="setLang('en')">English</button>
+    <button id="lang-ar" onclick="setLang('ar')">العربية</button>
+  </div>
+  <div class="swatches">
+    <button class="sw" data-th="green" onclick="setTheme('green')" style="background:#10B981" title="Green"></button>
+    <button class="sw" data-th="violet" onclick="setTheme('violet')" style="background:#5B3DF5" title="Violet"></button>
+    <button class="sw" data-th="ocean" onclick="setTheme('ocean')" style="background:#2563EB" title="Ocean"></button>
+    <button class="sw" data-th="sunset" onclick="setTheme('sunset')" style="background:#F4623A" title="Sunset"></button>
+  </div>
+  <div class="grp">Onboarding & KYC</div>
+  <a data-go="welcome">Welcome</a><a data-go="phone">Phone + OTP</a><a data-go="idcap">ID capture</a>
+  <a data-go="selfie">Selfie / liveness</a><a data-go="pending">KYC pending</a><a data-go="approved">KYC approved</a>
+  <div class="grp">Home & Browse</div>
+  <a data-go="home">Home / Dashboard</a><a data-go="stores">Store directory</a><a data-go="notifs">Notifications</a>
+  <div class="grp">Buy (in-store)</div>
+  <a data-go="scan">QR scanner</a><a data-go="plan">Plan preview</a><a data-go="consent">Consent / Confirm</a>
+  <a data-go="downpay">Collect down payment</a><a data-go="purchaseok">Goods released ✓</a><a data-go="declined">Declined</a>
+  <div class="grp">Loans & Repayment</div>
+  <a data-go="loans">My loans</a><a data-go="loandetail">Loan detail</a><a data-go="paynow">Pay now</a>
+  <a data-go="upload">Upload proof</a><a data-go="awaiting">Awaiting confirmation</a><a data-go="paid">Payment confirmed</a>
+  <div class="grp">Growth & states</div>
+  <a data-go="levelup">Level-up</a><a data-go="overdue">Overdue</a>
+</div>
+<div class="stage" id="stage"></div>
+
+<script>
+const L = {
+en:{ dir:'ltr', bk:'‹',
+ w_tag:'Buy now, pay in interest-free installments at thousands of stores', create:'Create account', have:'I already have an account',
+ ph_title:'Verify your phone', ph_sub:"We'll text you a 6-digit code to confirm your number.", ph_code:'Enter code', ph_resend:'Resend code in 0:24', cont:'Continue',
+ id_title:'Verify identity', id_sub:'Scan the front of your national ID. Make sure it\'s well-lit and readable.', id_warn:'🇸🇾 Syrian ID not auto-readable? Tap “Submit manually” — our team reviews within 24h.', id_cap:'Capture ID', id_man:'Submit manually',
+ sf_title:'Take a selfie', sf_sub:'We match your face to your ID. Blink when prompted.', sf_hint:'Center your face in the circle', submit:'Submit',
+ pd_title:'Reviewing your details', pd_sub:"This usually takes a few minutes. We'll notify you the moment you're approved.", pd_ph:'Phone verified', pd_id:'ID verified', pd_match:'Identity match', done:'Done', inrev:'In review', pd_demo:'(demo) Continue to approved',
+ ap_title:"You're approved!", ap_sub:"Welcome to Qisto. Here's your starting credit line.", ap_limit:'credit limit · 60% down payment', ap_tip:'Pay on time to level up → bigger limit, smaller down payment.', ap_cta:'Start shopping',
+ hi:'Hola,', name:'María 👋', avail:'Available to spend', used:'Used', limit:'Limit', nextpay:'Next payment', nopay:'No payments due 🎉', scanpay:'Scan to pay in store', activeloans:'Active loans', noloans:'No active loans yet.\\nScan a store QR to make your first purchase.',
+ stores:'Stores', search:'Search stores…', c_all:'All', c_gro:'Groceries', c_pha:'Pharmacy', c_ele:'Electronics', c_fas:'Fashion',
+ st1:'Supermercado Central', st1d:'Groceries · in-store + online', st2:'Farmacia La Salud', st2d:'Pharmacy · in-store', st3:'TecnoStore', st3d:'Electronics · in-store + online', st4:'ModaVe', st4d:'Fashion · online', st5:'MotoMax', st5d:'Vehicles · in-store',
+ notifs:'Notifications', n1:'You leveled up to Nivel 2!', n1d:'Bigger limit, lower down payment · 2h ago', n2:'Payment confirmed', n2d:'Farmacia confirmed your 280,000 SYP · yesterday', n3:'Payment due in 2 days', n3d:'Installment #2 · 280,000 SYP · ref LN-5821', n4:'Purchase approved', n4d:'Supermercado Central · 1,200,000 SYP · 3 days ago',
+ sc_sub:'Scan the QR shown by the cashier', sc_hint:'The store enters the amount — you just scan and confirm.', sc_demo:'(demo) Simulate scan',
+ pl_title:'Your payment plan', pl_today:'Pay today (down payment)', pl_then:'Then 3 payments of', pl_freq:'Frequency', pl_freqv:'Every 14 days · 0% interest', pl_sched:'Schedule', today:'Today', duenow:'due now', pl_uses:'Uses 1,200,000 SYP of your available credit.',
+ cf_title:'Confirm purchase', cf_total:'Total', cf_down:'Down payment today', cf_inst:'3 installments', cf_agree:'Credit agreement', cf_c1:'I agree to repay <b>1,200,000 SYP</b> per the schedule above to the merchant.', cf_c2:'I understand missed payments affect my level & limit.', cf_disc:'By confirming, you accept the credit agreement. A signed receipt will be issued. <span class="mut">Qisto records this agreement; payments are made via your bank. Goods financed by the merchant.</span>', cf_cta:'Confirm & accept',
+ dp_title:'Down payment', dp_h:'Pay 360,000 SYP to the cashier', dp_sub:"Hand the cashier your down payment (cash or transfer). They'll confirm it here.", dp_ref:'Loan reference', dp_status:'Status', dp_wait:'⏳ Waiting for merchant', dp_note:'Goods are released once the cashier confirms.', dp_demo:'(demo) Merchant confirmed',
+ ok_h:'All set!', ok_sub:'Down payment received. Enjoy your purchase.', outstanding:'Outstanding', nextdue:'Next due', ok_view:'View loan & receipt',
+ dc_h:'Purchase not approved', dc_sub:'This 1,200,000 SYP purchase exceeds your available credit of 400,000 SYP. Pay down an existing loan or try a smaller amount.', dc_avail:'Available', dc_this:'This purchase', dc_back:'Back to home',
+ ln_title:'My loans', active:'Active', paid:'Paid', ln_left:'left of 1,200,000 SYP', ln_next:'Next: 280,000 SYP on Jun 11 · LN-5821', ln_done:'600,000 SYP · completed May 10 · on time ✓',
+ ld_title:'Loan detail', ld_pay:'Payments', ld_dp:'Down payment · 360,000 SYP', ld_dpd:'Paid today · confirmed by merchant', ld_i2:'280,000 SYP · due Jun 11', ld_i2d:'Next payment', pay:'Pay', ld_i3:'280,000 SYP · due Jun 25', ld_i4:'280,000 SYP · due Jul 09', ld_inst:'View payment instructions', ld_rcpt:'📄 View receipt / agreement',
+ pn_title:'Pay installment #2', pn_amt:'Amount due', pn_due:'due Jun 11', pn_to:'Transfer to the merchant', pn_bank:'Bank', pn_acct:'Account', pn_ref:'Reference (required)', pn_warn:"⚠️ Always include the reference — it's how your payment gets matched. Pay the merchant directly; Qisto doesn't collect money.", pn_cta:"I've paid — upload proof",
+ up_title:'Upload proof', up_sub:"Attach your transfer receipt. This notifies the merchant to confirm — it speeds things up but doesn't replace their confirmation.", up_box:'📎\\nTap to upload screenshot\\nor photo of transfer', up_paying:'Paying', up_cta:'Submit proof',
+ aw_title:'Almost done', aw_h:'Waiting for merchant to confirm', aw_sub:"We've notified Supermercado Central. Your payment shows as <b>pending</b> until they confirm receipt.", aw_inst:'Installment #2', aw_pend:'Pending confirmation', aw_proof:'Proof uploaded', aw_note:"Taking too long? After 3 days our team steps in — <b>you won't be penalized</b> for a merchant delay.", aw_demo:'(demo) Merchant confirmed',
+ pc_h:'Payment confirmed', pc_sub:'280,000 SYP received. 2 payments to go.', pc_view:'View loan',
+ lu_badge:'NIVEL 1 → NIVEL 2', lu_h:'You leveled up!', lu_sub:'Paying on time pays off.', lu_newlim:'New limit', lu_down:'Down payment', lu_cta:'Shop now',
+ ov_title:'Payment overdue', ov_h:'280,000 SYP is 3 days overdue', ov_sub:'Pay now to keep your level and avoid limit reduction.', ov_inst:'Installment #2', overdue:'Overdue', ov_was:'Was due', ov_imp:'Impact', ov_frozen:'Level frozen', ov_cta:'Pay 280,000 SYP now',
+ nav_home:'Home', nav_stores:'Stores', nav_loans:'Loans', nav_profile:'Profile' },
+
+ar:{ dir:'rtl', bk:'‹',
+ w_tag:'اشترِ الآن وادفع على أقساط بدون فوائد في آلاف المتاجر', create:'إنشاء حساب', have:'لديّ حساب بالفعل',
+ ph_title:'تحقّق من رقم هاتفك', ph_sub:'سنرسل لك رمزاً مكوّناً من 6 أرقام لتأكيد رقمك.', ph_code:'أدخل الرمز', ph_resend:'إعادة إرسال الرمز خلال 0:24', cont:'متابعة',
+ id_title:'تحقّق من الهوية', id_sub:'صوّر الوجه الأمامي لبطاقتك الوطنية. تأكّد من وضوحها وإضاءتها الجيدة.', id_warn:'🇸🇾 تعذّرت قراءة الهوية السورية تلقائياً؟ اضغط «إرسال يدوي» — يراجعها فريقنا خلال 24 ساعة.', id_cap:'التقاط الهوية', id_man:'إرسال يدوي',
+ sf_title:'التقط صورة شخصية', sf_sub:'نطابق وجهك مع هويتك. اطرف بعينك عند الطلب.', sf_hint:'ضع وجهك داخل الدائرة', submit:'إرسال',
+ pd_title:'نراجع بياناتك', pd_sub:'تستغرق هذه العملية عادةً بضع دقائق. سنخطرك فور الموافقة.', pd_ph:'تم التحقق من الهاتف', pd_id:'تم التحقق من الهوية', pd_match:'مطابقة الهوية', done:'تم', inrev:'قيد المراجعة', pd_demo:'(تجريبي) المتابعة إلى الموافقة',
+ ap_title:'تمت الموافقة!', ap_sub:'أهلاً بك في Qisto. إليك حدّك الائتماني المبدئي.', ap_limit:'الحد الائتماني · دفعة أولى 60%', ap_tip:'ادفع في الوقت المحدد لترتقي بمستواك ← حدّ أكبر ودفعة أولى أقل.', ap_cta:'ابدأ التسوّق',
+ hi:'مرحباً،', name:'مريم 👋', avail:'المتاح للإنفاق', used:'المستخدَم', limit:'الحد', nextpay:'الدفعة القادمة', nopay:'لا توجد دفعات مستحقة 🎉', scanpay:'امسح للدفع في المتجر', activeloans:'القروض النشطة', noloans:'لا توجد قروض نشطة بعد.\\nامسح رمز QR في المتجر لإجراء أول عملية شراء.',
+ stores:'المتاجر', search:'ابحث عن المتاجر…', c_all:'الكل', c_gro:'بقالة', c_pha:'صيدلية', c_ele:'إلكترونيات', c_fas:'أزياء',
+ st1:'السوبر ماركت المركزي', st1d:'بقالة · بالمتجر + أونلاين', st2:'صيدلية الشفاء', st2d:'صيدلية · بالمتجر', st3:'تكنو ستور', st3d:'إلكترونيات · بالمتجر + أونلاين', st4:'أزياء', st4d:'أزياء · أونلاين', st5:'موتو ماكس', st5d:'مركبات · بالمتجر',
+ notifs:'الإشعارات', n1:'لقد ارتقيت إلى المستوى 2!', n1d:'حدّ أكبر ودفعة أولى أقل · قبل ساعتين', n2:'تم تأكيد الدفعة', n2d:'أكّدت الصيدلية دفعتك 280,000 SYP · أمس', n3:'دفعة مستحقة خلال يومين', n3d:'القسط رقم 2 · 280,000 SYP · مرجع LN-5821', n4:'تمت الموافقة على الشراء', n4d:'السوبر ماركت المركزي · 1,200,000 SYP · قبل 3 أيام',
+ sc_sub:'امسح رمز QR الذي يعرضه أمين الصندوق', sc_hint:'يُدخل المتجر المبلغ — كل ما عليك هو المسح والتأكيد.', sc_demo:'(تجريبي) محاكاة المسح',
+ pl_title:'خطة الدفع الخاصة بك', pl_today:'ادفع اليوم (الدفعة الأولى)', pl_then:'ثم 3 دفعات بقيمة', pl_freq:'التكرار', pl_freqv:'كل 14 يوماً · بدون فوائد', pl_sched:'الجدول', today:'اليوم', duenow:'مستحقة الآن', pl_uses:'يستخدم 1,200,000 SYP من رصيدك المتاح.',
+ cf_title:'تأكيد الشراء', cf_total:'الإجمالي', cf_down:'الدفعة الأولى اليوم', cf_inst:'3 أقساط', cf_agree:'اتفاقية الائتمان', cf_c1:'أوافق على سداد <b>1,200,000 SYP</b> وفقاً للجدول أعلاه إلى التاجر.', cf_c2:'أدرك أن تأخّر الدفعات يؤثّر على مستواي وحدّي الائتماني.', cf_disc:'بالتأكيد، فإنك توافق على اتفاقية الائتمان وسيتم إصدار إيصال. <span class="mut">تسجّل Qisto هذه الاتفاقية؛ وتُدفع المبالغ عبر مصرفك. التاجر هو من يموّل البضاعة.</span>', cf_cta:'تأكيد وموافقة',
+ dp_title:'الدفعة الأولى', dp_h:'ادفع 360,000 SYP لأمين الصندوق', dp_sub:'سلّم أمين الصندوق دفعتك الأولى (نقداً أو تحويلاً). سيؤكّدها هنا.', dp_ref:'رقم القرض المرجعي', dp_status:'الحالة', dp_wait:'⏳ بانتظار التاجر', dp_note:'تُسلَّم البضاعة بمجرد تأكيد أمين الصندوق.', dp_demo:'(تجريبي) أكّد التاجر',
+ ok_h:'تم كل شيء!', ok_sub:'تم استلام الدفعة الأولى. استمتع بمشترياتك.', outstanding:'المتبقّي', nextdue:'الاستحقاق القادم', ok_view:'عرض القرض والإيصال',
+ dc_h:'لم تتم الموافقة على الشراء', dc_sub:'هذه العملية بقيمة 1,200,000 SYP تتجاوز رصيدك المتاح البالغ 400,000 SYP. سدّد قرضاً قائماً أو جرّب مبلغاً أصغر.', dc_avail:'المتاح', dc_this:'هذه العملية', dc_back:'العودة للرئيسية',
+ ln_title:'قروضي', active:'نشط', paid:'مدفوع', ln_left:'متبقٍّ من 1,200,000 SYP', ln_next:'التالي: 280,000 SYP في 11 يونيو · LN-5821', ln_done:'600,000 SYP · اكتمل في 10 مايو · في الوقت المحدد ✓',
+ ld_title:'تفاصيل القرض', ld_pay:'الدفعات', ld_dp:'الدفعة الأولى · 360,000 SYP', ld_dpd:'مدفوعة اليوم · أكّدها التاجر', ld_i2:'280,000 SYP · تستحق 11 يونيو', ld_i2d:'الدفعة القادمة', pay:'ادفع', ld_i3:'280,000 SYP · تستحق 25 يونيو', ld_i4:'280,000 SYP · تستحق 9 يوليو', ld_inst:'عرض تعليمات الدفع', ld_rcpt:'📄 عرض الإيصال / الاتفاقية',
+ pn_title:'ادفع القسط رقم 2', pn_amt:'المبلغ المستحق', pn_due:'تستحق 11 يونيو', pn_to:'حوّل إلى التاجر', pn_bank:'المصرف', pn_acct:'الحساب', pn_ref:'الرقم المرجعي (مطلوب)', pn_warn:'⚠️ أرفق الرقم المرجعي دائماً — به تتم مطابقة دفعتك. ادفع للتاجر مباشرةً؛ Qisto لا تُحصّل الأموال.', pn_cta:'لقد دفعت — ارفع الإثبات',
+ up_title:'رفع الإثبات', up_sub:'أرفق إيصال التحويل. هذا يُخطر التاجر ليؤكّد — يُسرّع العملية لكنه لا يغني عن تأكيده.', up_box:'📎\\nاضغط لرفع لقطة شاشة\\nأو صورة للتحويل', up_paying:'تدفع', up_cta:'إرسال الإثبات',
+ aw_title:'أوشكنا على الانتهاء', aw_h:'بانتظار تأكيد التاجر', aw_sub:'لقد أخطرنا السوبر ماركت المركزي. تظهر دفعتك كـ <b>معلّقة</b> حتى يؤكّد الاستلام.', aw_inst:'القسط رقم 2', aw_pend:'بانتظار التأكيد', aw_proof:'تم رفع الإثبات', aw_note:'تأخّر الأمر؟ بعد 3 أيام يتدخّل فريقنا — <b>لن تتحمّل أي عقوبة</b> بسبب تأخّر التاجر.', aw_demo:'(تجريبي) أكّد التاجر',
+ pc_h:'تم تأكيد الدفعة', pc_sub:'تم استلام 280,000 SYP. تبقّت دفعتان.', pc_view:'عرض القرض',
+ lu_badge:'المستوى 1 ← المستوى 2', lu_h:'لقد ارتقيت بمستواك!', lu_sub:'الالتزام بالدفع يكافئك.', lu_newlim:'الحد الجديد', lu_down:'الدفعة الأولى', lu_cta:'تسوّق الآن',
+ ov_title:'دفعة متأخّرة', ov_h:'تأخّرت 280,000 SYP لمدة 3 أيام', ov_sub:'ادفع الآن للحفاظ على مستواك وتجنّب خفض حدّك.', ov_inst:'القسط رقم 2', overdue:'متأخّرة', ov_was:'كانت مستحقة', ov_imp:'الأثر', ov_frozen:'تم تجميد المستوى', ov_cta:'ادفع 280,000 SYP الآن',
+ nav_home:'الرئيسية', nav_stores:'المتاجر', nav_loans:'قروضي', nav_profile:'حسابي' },
+};
+
+let lang='en';
+let theme=(()=>{try{return localStorage.getItem('qt')||'green'}catch(e){return 'green'}})();
+const APP=/[?&](app|preview)/.test(location.search)||(window.innerWidth<820&&!/[?&]gallery/.test(location.search));
+let active='welcome';
+// Qisto logo mark: clean Q monogram (ring + tail), inherits color via currentColor
+const MARK=(size)=>`<svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;color:inherit">
+<circle cx="50" cy="50" r="29" stroke="currentColor" stroke-width="13"/>
+<line x1="62" y1="62" x2="84" y2="84" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
+</svg>`;
+const sb=`<div class="stat"><span>9:41</span><span>5G &nbsp;🔋</span></div>`;
+function nl(s){return s.replace(/\\n/g,'<br>');}
+function nav(t,active){
+  const tab=(id,k,ic)=>`<div data-go="${id}" class="${active===k?'active':''}"><span class="ic">${ic}</span>${t['nav_'+k]}</div>`;
+  return `<div class="nav">${tab('home','home','⌂')}${tab('stores','stores','▦')}<div class="scan" data-go="scan"><div class="scanbtn">⧉</div></div>${tab('loans','loans','▤')}${tab('approved','profile','◍')}</div>`;
+}
+
+const S = {
+welcome:{cap:'Welcome',bg:'brand',noSb:1,html:t=>`
+ <div class="stat" style="color:#fff"><span>9:41</span><span>5G 🔋</span></div>
+ <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:4px 18px">
+   <div class="cpick"><button class="cpick-btn" onclick="event.stopPropagation();document.getElementById('cmenu').classList.toggle('open')"><span class="cdot" style="background:var(--brand)"></span><span style="font-size:8px;opacity:.9">▼</span></button><div class="cmenu" id="cmenu">${[['green','#10B981'],['violet','#5B3DF5'],['ocean','#2563EB'],['sunset','#F4623A']].map(o=>`<button class="cdot pick" title="${o[0]}" style="background:${o[1]}" onclick="event.stopPropagation();setTheme('${o[0]}');document.getElementById('cmenu').classList.remove('open')"></button>`).join('')}</div></div>
+   <div onclick="event.stopPropagation();setLang('${lang==='en'?'ar':'en'}')" style="background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:20px;cursor:pointer">${lang==='en'?'العربية':'English'} 🌐</div>
+ </div>
+ <div class="hero"><div class="logo">${MARK('50px')}</div><h1 style="font-size:30px;letter-spacing:-.03em">Qisto</h1>
+   <p style="opacity:.9;font-size:14.5px;line-height:1.6;margin-top:10px">${t.w_tag}</p></div>
+ <div class="ftr"><a class="btn lite" data-go="phone">${t.create}</a><a class="btn gho" style="color:#fff" data-go="home">${t.have}</a></div>`},
+
+phone:{cap:'Phone + OTP',html:t=>`
+ <div class="top"><span class="bk" data-go="welcome">${t.bk}</span><h2>${t.ph_title}</h2></div>
+ <div class="body"><p class="m" style="margin-bottom:16px">${t.ph_sub}</p>
+   <div class="field" style="color:var(--ink)">🇸🇾 +963 &nbsp; 944 555 019</div>
+   <h3 style="margin-top:20px">${t.ph_code}</h3>
+   <div style="display:flex;gap:8px;margin:6px 0 14px">${[4,8,1,2].map(n=>`<div class="field" style="flex:1;text-align:center;color:var(--ink);font-weight:800">${n}</div>`).join('')}<div class="field" style="flex:1;text-align:center">_</div><div class="field" style="flex:1;text-align:center">_</div></div>
+   <p class="m">${t.ph_resend}</p></div>
+ <div class="ftr"><a class="btn" data-go="idcap">${t.cont}</a></div>`},
+
+idcap:{cap:'ID capture',html:t=>`
+ <div class="top"><span class="bk" data-go="phone">${t.bk}</span><h2>${t.id_title}</h2></div>
+ <div class="body"><p class="m" style="margin-bottom:16px">${t.id_sub}</p>
+   <div style="background:#0f0d1c;border-radius:18px;height:200px;display:flex;align-items:center;justify-content:center;margin-bottom:13px"><div style="width:80%;height:70%;border:2px dashed rgba(255,255,255,.45);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:40px">🪪</div></div>
+   <div class="card" style="background:var(--warn-l);box-shadow:none"><p class="m" style="color:#9a5d05">${t.id_warn}</p></div></div>
+ <div class="ftr"><a class="btn" data-go="selfie">${t.id_cap}</a><a class="btn gho" data-go="selfie">${t.id_man}</a></div>`},
+
+selfie:{cap:'Selfie / liveness',html:t=>`
+ <div class="top"><span class="bk" data-go="idcap">${t.bk}</span><h2>${t.sf_title}</h2></div>
+ <div class="body center" style="display:flex;flex-direction:column;justify-content:center">
+   <p class="m" style="margin-bottom:20px">${t.sf_sub}</p>
+   <div style="width:210px;height:210px;border-radius:50%;background:#0f0d1c;margin:6px auto;border:4px solid var(--brand2);display:flex;align-items:center;justify-content:center;font-size:70px">🙂</div>
+   <p class="m" style="margin-top:18px">${t.sf_hint}</p></div>
+ <div class="ftr"><a class="btn" data-go="pending">${t.submit}</a></div>`},
+
+pending:{cap:'KYC pending',html:t=>`
+ <div class="body center" style="display:flex;flex-direction:column;justify-content:center">
+   <div class="badge" style="background:var(--warn-l)">⏳</div><h3 style="font-size:20px">${t.pd_title}</h3>
+   <p class="m" style="margin-top:10px;padding:0 12px">${t.pd_sub}</p>
+   <div class="card" style="margin-top:24px;text-align:start"><div class="row"><span>${t.pd_ph}</span><span class="pill ok">✓ ${t.done}</span></div><div class="row"><span>${t.pd_id}</span><span class="pill ok">✓ ${t.done}</span></div><div class="row"><span>${t.pd_match}</span><span class="pill warn">${t.inrev}</span></div></div></div>
+ <div class="ftr"><a class="btn sec" data-go="approved">${t.pd_demo}</a></div>`},
+
+approved:{cap:'KYC approved — Level 1',bg:'brand',html:t=>`
+ <div class="hero"><div class="badge glass">🎉</div><h1 style="font-size:25px">${t.ap_title}</h1>
+   <p style="opacity:.9;margin-top:10px">${t.ap_sub}</p>
+   <div class="glass" style="padding:20px;margin-top:24px;width:100%"><span class="lvlbadge">NIVEL 1</span><div class="big" style="margin-top:12px">400,000 SYP</div><p style="opacity:.85;font-size:12px">${t.ap_limit}</p></div>
+   <p style="opacity:.85;font-size:12.5px;margin-top:16px">${t.ap_tip}</p></div>
+ <div class="ftr"><a class="btn lite" data-go="home">${t.ap_cta}</a></div>`},
+
+home:{cap:'Home / Dashboard',html:t=>`
+ <div class="body" style="padding-bottom:6px">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div><p class="mut" style="font-size:12px">${t.hi}</p><h2 style="font-size:19px">${t.name}</h2></div><span data-go="notifs" style="font-size:21px;position:relative;cursor:pointer">🔔<span style="position:absolute;top:-2px;right:-3px;width:9px;height:9px;background:var(--bad);border-radius:50%;border:1.5px solid #fff"></span></span></div>
+   <div class="creditcard"><span class="lvlbadge">NIVEL 1</span><div class="lab" style="margin-top:13px">${t.avail}</div><div class="big">400,000 SYP</div><div class="bar"><i style="width:8%"></i></div><div style="display:flex;justify-content:space-between;font-size:11px;opacity:.85"><span>${t.used} 0 SYP</span><span>${t.limit} 400,000 SYP</span></div></div>
+   <div class="card" style="background:var(--warn-l);box-shadow:none;display:flex;justify-content:space-between;align-items:center"><div><div class="b" style="font-size:13px">${t.nextpay}</div><p class="m" style="color:#9a5d05">${t.nopay}</p></div></div>
+   <a class="btn" data-go="scan" style="margin:4px 0 14px">⧉ &nbsp;${t.scanpay}</a>
+   <h3>${t.activeloans}</h3><div class="card center"><p class="m">${nl(t.noloans)}</p></div></div>
+ ${nav(t,'home')}`},
+
+stores:{cap:'Store directory',html:t=>`
+ <div class="top"><h2>${t.stores}</h2></div>
+ <div class="body" style="padding-top:0"><div class="field" style="margin-bottom:15px">🔎 ${t.search}</div>
+   <div class="chips">${[['c_all',1],['c_gro'],['c_pha'],['c_ele'],['c_fas']].map(c=>`<span class="chip ${c[1]?'on':''}">${t[c[0]]}</span>`).join('')}</div>
+   ${[['🛒','st1','st1d'],['💊','st2','st2d'],['📱','st3','st3d'],['👕','st4','st4d'],['🏍️','st5','st5d']].map(s=>`<div class="store"><div class="slogo">${s[0]}</div><div style="flex:1"><div class="b" style="font-size:14px">${t[s[1]]}</div><p class="mut" style="font-size:12px">${t[s[2]]}</p></div><span class="mut">›</span></div>`).join('')}</div>
+ ${nav(t,'stores')}`},
+
+notifs:{cap:'Notifications',html:t=>`
+ <div class="top"><span class="bk" data-go="home">${t.bk}</span><h2>${t.notifs}</h2></div>
+ <div class="body" style="padding-top:0">${[['🚀','var(--mint-l)','n1','n1d'],['✓','var(--mint-l)','n2','n2d'],['⏰','var(--warn-l)','n3','n3d'],['🛍️','var(--brand-l)','n4','n4d']].map(n=>`<div class="notif"><div class="ic" style="background:${n[1]}">${n[0]}</div><div><div class="b">${t[n[2]]}</div><p class="mut" style="font-size:12px">${t[n[3]]}</p></div></div>`).join('')}</div>`},
+
+scan:{cap:'QR scanner',noSb:1,html:t=>`
+ <div class="stat" style="color:#fff"><span>9:41</span><span>5G 🔋</span></div>
+ <div class="scanview"><span class="bk" data-go="home" style="position:absolute;top:8px;inset-inline-start:20px;color:#fff;font-size:26px;cursor:pointer">${t.bk}</span>
+   <p style="margin-bottom:22px;opacity:.85">${t.sc_sub}</p>
+   <div class="scanbox"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+   <p style="margin-top:26px;font-size:13px;opacity:.65;padding:0 34px;text-align:center">${t.sc_hint}</p>
+   <a class="btn" data-go="plan" style="width:auto;padding:13px 28px;margin-top:20px">${t.sc_demo}</a></div>`},
+
+plan:{cap:'Plan preview',html:t=>`
+ <div class="top"><span class="bk" data-go="scan">${t.bk}</span><h2>${t.pl_title}</h2></div>
+ <div class="body"><div class="card center" style="background:var(--brand-l);box-shadow:none"><div class="slogo" style="margin:0 auto 8px">🛒</div><div class="b">${t.st1}</div><div class="big" style="color:var(--brand);margin-top:4px">1,200,000 SYP</div><p class="mut" style="font-size:12px">Order #POS-99213</p></div>
+   <div class="card"><div class="row"><span class="b">${t.pl_today}</span><span class="b" style="color:var(--brand)">360,000 SYP</span></div><div class="row"><span class="mut">${t.pl_then}</span><span>280,000 SYP</span></div><div class="row"><span class="mut">${t.pl_freq}</span><span>${t.pl_freqv}</span></div></div>
+   <div class="card" style="background:#faf9ff;box-shadow:none"><h3 style="font-size:13px;margin-bottom:6px">${t.pl_sched}</h3>${[[t.today,'360,000 SYP',t.duenow],['11 Jun','280,000 SYP',''],['25 Jun','280,000 SYP',''],['09 Jul','280,000 SYP','']].map(r=>`<div class="row" style="padding:7px 0"><span class="mut">${r[0]}</span><span>${r[1]} ${r[2]?`<span class="mut" style="font-size:11px">${r[2]}</span>`:''}</span></div>`).join('')}</div>
+   <p class="m center">${t.pl_uses}</p></div>
+ <div class="ftr"><a class="btn" data-go="consent">${t.cont}</a></div>`},
+
+consent:{cap:'Consent / Confirm',html:t=>`
+ <div class="top"><span class="bk" data-go="plan">${t.bk}</span><h2>${t.cf_title}</h2></div>
+ <div class="body"><div class="card"><div class="row"><span class="mut">${t.cf_total}</span><span class="b">1,200,000 SYP</span></div><div class="row"><span class="mut">${t.cf_down}</span><span class="b">360,000 SYP</span></div><div class="row"><span class="mut">${t.cf_inst}</span><span class="b">280,000 SYP × 3</span></div></div>
+   <h3 style="margin-top:6px">${t.cf_agree}</h3><div class="card"><div class="conf"><span class="ck">✓</span><span>${t.cf_c1}</span></div><div class="conf"><span class="ck">✓</span><span>${t.cf_c2}</span></div></div>
+   <p class="m">${t.cf_disc}</p></div>
+ <div class="ftr"><a class="btn" data-go="downpay">${t.cf_cta}</a></div>`},
+
+downpay:{cap:'Collect down payment',html:t=>`
+ <div class="top"><span class="bk" data-go="consent">${t.bk}</span><h2>${t.dp_title}</h2></div>
+ <div class="body center" style="display:flex;flex-direction:column;justify-content:center"><div class="badge" style="background:var(--brand-l)">💵</div><h3 style="font-size:19px">${t.dp_h}</h3><p class="m" style="margin-top:10px;padding:0 10px">${t.dp_sub}</p>
+   <div class="card" style="margin-top:22px;text-align:start;background:#faf9ff;box-shadow:none"><div class="row"><span class="mut">${t.dp_ref}</span><span class="b">LN-2026-0005821</span></div><div class="row"><span class="mut">${t.dp_status}</span><span class="pill warn">${t.dp_wait}</span></div></div>
+   <p class="m" style="margin-top:16px">${t.dp_note}</p></div>
+ <div class="ftr"><a class="btn sec" data-go="purchaseok">${t.dp_demo}</a></div>`},
+
+purchaseok:{cap:'Goods released',bg:'brand',html:t=>`
+ <div class="hero"><div class="badge glass">✅</div><h1 style="font-size:24px">${t.ok_h}</h1><p style="opacity:.9;margin-top:10px">${t.ok_sub}</p>
+   <div class="glass" style="padding:18px;margin-top:22px;width:100%;text-align:start"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px"><span style="opacity:.85">${t.outstanding}</span><span class="b">840,000 SYP</span></div><div style="display:flex;justify-content:space-between;font-size:13px"><span style="opacity:.85">${t.nextdue}</span><span class="b">11 Jun · 280,000 SYP</span></div></div></div>
+ <div class="ftr"><a class="btn lite" data-go="loandetail">${t.ok_view}</a><a class="btn gho" style="color:#fff" data-go="home">${t.done}</a></div>`},
+
+declined:{cap:'Declined',html:t=>`
+ <div class="body center" style="display:flex;flex-direction:column;justify-content:center"><div class="badge" style="background:var(--bad-l)">✕</div><h3 style="font-size:19px">${t.dc_h}</h3><p class="m" style="margin-top:10px;padding:0 14px">${t.dc_sub}</p>
+   <div class="card" style="margin-top:20px"><div class="row"><span class="mut">${t.dc_avail}</span><span class="b">400,000 SYP</span></div><div class="row"><span class="mut">${t.dc_this}</span><span class="b">1,200,000 SYP</span></div></div></div>
+ <div class="ftr"><a class="btn" data-go="home">${t.dc_back}</a></div>`},
+
+loans:{cap:'My loans',html:t=>`
+ <div class="top"><h2>${t.ln_title}</h2></div>
+ <div class="body" style="padding-top:0"><div class="card" data-go="loandetail" style="cursor:pointer"><div style="display:flex;justify-content:space-between"><div class="b">${t.st1}</div><span class="pill warn">${t.active}</span></div><div class="big" style="font-size:23px;margin:7px 0">840,000 SYP <span class="mut" style="font-size:13px;font-weight:500">${t.ln_left}</span></div><div class="bar" style="background:var(--line)"><i style="width:30%;background:var(--brand)"></i></div><p class="mut" style="font-size:12px;margin-top:7px">${t.ln_next}</p></div>
+   <div class="card"><div style="display:flex;justify-content:space-between"><div class="b">${t.st2}</div><span class="pill ok">${t.paid}</span></div><p class="mut" style="font-size:12px;margin-top:7px">${t.ln_done}</p></div></div>
+ ${nav(t,'loans')}`},
+
+loandetail:{cap:'Loan detail',html:t=>`
+ <div class="top"><span class="bk" data-go="loans">${t.bk}</span><h2>${t.ld_title}</h2></div>
+ <div class="body"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="b">${t.st1}</div><p class="mut" style="font-size:12px">LN-2026-0005821</p></div><span class="pill warn">${t.active}</span></div><div class="row" style="margin-top:8px"><span class="mut">${t.outstanding}</span><span class="big" style="font-size:23px">840,000 SYP</span></div></div>
+   <h3>${t.ld_pay}</h3><div class="card"><div class="timeline">
+     <div class="step"><div class="dot" style="background:var(--mint);color:#fff">✓</div><div><div class="b" style="font-size:13px">${t.ld_dp}</div><p class="mut" style="font-size:12px">${t.ld_dpd}</p></div></div>
+     <div class="step"><div class="dot" style="background:var(--brand);color:#fff">2</div><div style="flex:1"><div class="b" style="font-size:13px">${t.ld_i2}</div><p class="mut" style="font-size:12px">${t.ld_i2d}</p></div><a class="pill b" data-go="paynow" style="cursor:pointer">${t.pay}</a></div>
+     <div class="step"><div class="dot" style="background:#eee;color:var(--mut)">3</div><div><div style="font-size:13px">${t.ld_i3}</div></div></div>
+     <div class="step"><div class="dot" style="background:#eee;color:var(--mut)">4</div><div><div style="font-size:13px">${t.ld_i4}</div></div></div></div></div>
+   <a class="btn sec" data-go="paynow">${t.ld_inst}</a><a class="btn gho" data-go="loans" style="margin-top:4px">${t.ld_rcpt}</a></div>`},
+
+paynow:{cap:'Pay now',html:t=>`
+ <div class="top"><span class="bk" data-go="loandetail">${t.bk}</span><h2>${t.pn_title}</h2></div>
+ <div class="body"><div class="card center" style="background:var(--brand-l);box-shadow:none"><p class="mut" style="font-size:12px">${t.pn_amt}</p><div class="big" style="color:var(--brand)">280,000 SYP</div><p class="mut" style="font-size:12px">${t.pn_due}</p></div>
+   <h3>${t.pn_to}</h3><div class="card"><div class="row"><span class="mut">${t.pn_bank}</span><span class="b">Banco XXX 🔁</span></div><div class="row"><span class="mut">${t.pn_acct}</span><span class="b">0102-xxxx 🔁</span></div><div class="row"><span class="mut">${t.pn_ref}</span><span class="b" style="color:var(--brand)">LN-…5821 🔁</span></div></div>
+   <div class="card" style="background:var(--warn-l);box-shadow:none"><p class="m" style="color:#9a5d05">${t.pn_warn}</p></div></div>
+ <div class="ftr"><a class="btn" data-go="upload">${t.pn_cta}</a></div>`},
+
+upload:{cap:'Upload proof',html:t=>`
+ <div class="top"><span class="bk" data-go="paynow">${t.bk}</span><h2>${t.up_title}</h2></div>
+ <div class="body"><p class="m" style="margin-bottom:15px">${t.up_sub}</p><div class="upbox">${nl(t.up_box)}</div>
+   <div class="card" style="margin-top:15px"><div class="row"><span class="mut">${t.up_paying}</span><span class="b">280,000 SYP</span></div><div class="row"><span class="mut">${t.pn_ref}</span><span class="b">LN-…5821</span></div></div></div>
+ <div class="ftr"><a class="btn" data-go="awaiting">${t.up_cta}</a></div>`},
+
+awaiting:{cap:'Awaiting confirmation',html:t=>`
+ <div class="top"><span class="bk" data-go="loandetail">${t.bk}</span><h2>${t.aw_title}</h2></div>
+ <div class="body center" style="display:flex;flex-direction:column;justify-content:center"><div class="badge" style="background:var(--warn-l)">⏳</div><h3 style="font-size:19px">${t.aw_h}</h3><p class="m" style="margin-top:10px;padding:0 12px">${t.aw_sub}</p>
+   <div class="card" style="margin-top:20px;text-align:start"><div class="row"><span class="mut">${t.aw_inst}</span><span class="pill warn">${t.aw_pend}</span></div><div class="row"><span class="mut">${t.aw_proof}</span><span class="pill ok">✓</span></div></div>
+   <p class="m" style="margin-top:16px">${t.aw_note}</p></div>
+ <div class="ftr"><a class="btn sec" data-go="paid">${t.aw_demo}</a></div>`},
+
+paid:{cap:'Payment confirmed',bg:'brand',html:t=>`
+ <div class="hero"><div class="badge glass" style="background:rgba(16,217,160,.3)">✓</div><h1 style="font-size:23px">${t.pc_h}</h1><p style="opacity:.9;margin-top:10px">${t.pc_sub}</p>
+   <div class="glass" style="padding:18px;margin-top:22px;width:100%;text-align:start"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px"><span style="opacity:.85">${t.outstanding}</span><span class="b">560,000 SYP</span></div><div style="display:flex;justify-content:space-between;font-size:13px"><span style="opacity:.85">${t.nextdue}</span><span class="b">25 Jun · 280,000 SYP</span></div></div></div>
+ <div class="ftr"><a class="btn lite" data-go="loandetail">${t.pc_view}</a><a class="btn gho" style="color:#fff" data-go="home">${t.done}</a></div>`},
+
+levelup:{cap:'Level-up',bg:'brand',html:t=>`
+ <div class="hero"><div class="badge glass" style="font-size:50px">🚀</div><span class="lvlbadge" style="font-size:13px">${t.lu_badge}</span><h1 style="font-size:25px;margin-top:16px">${t.lu_h}</h1><p style="opacity:.9;margin-top:10px">${t.lu_sub}</p>
+   <div class="glass" style="padding:20px;margin-top:22px;width:100%"><div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:9px"><span style="opacity:.85">${t.lu_newlim}</span><span class="b">400,000 SYP → 1,000,000 SYP</span></div><div style="display:flex;justify-content:space-between;font-size:14px"><span style="opacity:.85">${t.lu_down}</span><span class="b">60% → 40%</span></div></div></div>
+ <div class="ftr"><a class="btn lite" data-go="home">${t.lu_cta}</a></div>`},
+
+overdue:{cap:'Overdue',html:t=>`
+ <div class="top"><span class="bk" data-go="loans">${t.bk}</span><h2>${t.ov_title}</h2></div>
+ <div class="body"><div class="card center" style="background:var(--bad-l);box-shadow:none"><div class="badge" style="background:#fff;width:64px;height:64px;font-size:30px;margin-bottom:8px">⚠️</div><h3 style="font-size:18px;color:#e23b40">${t.ov_h}</h3><p class="m" style="color:#b23035;margin-top:8px">${t.ov_sub}</p></div>
+   <div class="card"><div class="row"><span class="mut">${t.ov_inst}</span><span class="pill bad">${t.overdue}</span></div><div class="row"><span class="mut">${t.ov_was}</span><span>11 Jun</span></div><div class="row"><span class="mut">${t.ov_imp}</span><span class="mut">${t.ov_frozen}</span></div></div></div>
+ <div class="ftr"><a class="btn" data-go="paynow">${t.ov_cta}</a></div>`},
+};
+
+const stage=document.getElementById('stage');
+function render(){
+  const t=L[lang];
+  if(APP){
+    const s=S[active]||S.welcome;
+    stage.innerHTML=`<div class="phone"><div class="island"></div><div class="screenwrap"><div class="screen" dir="${t.dir}" lang="${lang}" id="sc-${active}" data-bg="${s.bg||''}">${s.noSb?'':sb}${s.html(t)}</div></div></div>`;
+    bind(); return;
+  }
+  stage.innerHTML='';
+  for(const k in S){
+    const s=S[k];
+    const ph=document.createElement('div');ph.className='phone';
+    ph.innerHTML=`<div class="island"></div><div class="screenwrap"><div class="screen" dir="${t.dir}" lang="${lang}" id="sc-${k}" data-bg="${s.bg||''}">${s.noSb?'':sb}${s.html(t)}</div></div><div class="scapt">${s.cap}</div>`;
+    stage.appendChild(ph);
+  }
+  document.getElementById('lang-en').classList.toggle('on',lang==='en');
+  document.getElementById('lang-ar').classList.toggle('on',lang==='ar');
+  bind();
+}
+function show(id){
+  const el=document.getElementById('sc-'+id);
+  if(el){const p=el.closest('.phone');p.scrollIntoView({behavior:'smooth',block:'center',inline:'center'});
+    p.animate([{boxShadow:'0 0 0 4px var(--mint)'},{boxShadow:'var(--sh2),0 30px 70px rgba(0,0,0,.5)'}],{duration:1000});}
+  document.querySelectorAll('.sidebar a').forEach(a=>a.classList.toggle('active',a.dataset.go===id));
+}
+function go(id){ if(APP){active=id;window.scrollTo(0,0);render();} else show(id); }
+function bind(){document.querySelectorAll('[data-go]').forEach(e=>{e.onclick=ev=>{ev.stopPropagation();go(e.dataset.go);};});}
+window.setTheme=setTheme;
+function setLang(l){lang=l;render();const w=document.getElementById('sc-welcome');if(w&&!APP)w.closest('.phone').scrollIntoView({block:'center'});}
+function setTheme(th){
+  theme=th;
+  try{localStorage.setItem('qt',th)}catch(e){}
+  document.body.setAttribute('data-theme',th);
+  document.querySelectorAll('.sw').forEach(b=>b.classList.toggle('on',b.dataset.th===th));
+  const sel=document.getElementById('themesel'); if(sel) sel.value=th;
+}
+if(APP) document.body.classList.add('appmode');
+render();
+setTheme(theme);
+document.addEventListener('click',e=>{const m=document.getElementById('cmenu');if(m&&!e.target.closest('.cpick'))m.classList.remove('open');});
+</script>
+</body>
+</html>
